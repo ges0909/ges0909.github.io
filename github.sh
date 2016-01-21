@@ -66,7 +66,7 @@ function init
 
   # themes
   git subtree add --squash --prefix=themes/casper https://github.com/vjeantet/hugo-theme-casper.git master
-#  git subtree add --squash --prefix=themes/kasper https://github.com/ges0909/hugo-theme-kasper.git master
+# git subtree add --squash --prefix=themes/kasper https://github.com/ges0909/hugo-theme-kasper.git master
   git subtree add --squash --prefix=themes/slide https://github.com/ges0909/hugo-theme-slide.git master
 
   git push origin source
