@@ -1,0 +1,51 @@
+{{ partial "header.html" . }}
+
+{{if .Params.image}}
+  <header class="main-header post-head" style="background-image: url({{ .Site.BaseURL }}{{ .Params.image }})">
+{{else}}
+  <header class="main-header post-head no-cover">
+{{end}}
+
+    <!-- add arrow key navigation -->
+    <script type="text/javascript">
+    document.onkeydown = function(e) {
+      e = e || window.event; // 'window.event' to work with IE pre IE9 versions
+      if ( e.keyCode == '37' /*left*/ ) {
+        {{ if .Prev }}
+          window.location = {{ .Prev.Permalink }};  // next post
+        {{ else }}
+          window.location = {{ .Site.BaseURL }};    // start page
+        {{ end }}
+      }
+      if ( e.keyCode == '39' /*right*/ ) {
+
+        {{ if .Next }}
+          window.location = {{ .Next.Permalink }};  // previous post
+        {{ else }}
+          window.location = {{ .Site.BaseURL }};    // start page
+        {{ end }}
+      }
+    }
+    </script>
+
+  </header>
+
+  <main class="content" role="main">
+
+    <article class="post {{ .Section }}">
+
+      <header class="post-header">
+        <h1 class="post-title">{{.Title}}</h1>
+        <small>{{.Description}}</small>
+      </header>
+
+      <section class="post-content">
+        {{ .Content }}
+      </section>
+
+    </article>
+
+  </main>
+
+{{ partial "footer.html" . }}
+  
