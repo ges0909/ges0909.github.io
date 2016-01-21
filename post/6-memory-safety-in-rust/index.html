@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Memory Safety in Rust &middot;  Overview Rust vs. Go" />
+  	<meta property="og:site_name" content="Overview Rust vs. Go" />
+  	<meta property="og:url" content="http://ges0909.github.io/post/6-memory-safety-in-rust/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-01-05T00:00:00&#43;01:00" />
+
+    
+    <meta property="og:article:tag" content="rust" />
+    
+    
+
+  <title>
+     Memory Safety in Rust &middot;  Overview Rust vs. Go
+  </title>
+
+    <meta name="description" content="BrightONE Workshop Berlin, February 2016" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="http://ges0909.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="http://ges0909.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="http://ges0909.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="http://ges0909.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="http://ges0909.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Overview Rust vs. Go" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.15" />
+
+    <link rel="canonical" href="http://ges0909.github.io/post/6-memory-safety-in-rust/" />
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">Home</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/rust/">Rust</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/go/">Go</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://www.xing.com/profile/Gerrit_Schrader2">About</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="http://ges0909.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head no-cover">
+  <nav class="main-nav clearfix">
+
+
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Memory Safety in Rust</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-01-05T00:00:00&#43;01:00">
+            Jan 5, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="http://ges0909.github.io/tags/rust/">#rust</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<p><strong>Ownership</strong>, <strong>borrowing</strong> and <strong>lifetime</strong> are the key concepts to
+reach memory safety of programs. They are the selling points making <em>Rust</em>
+unique to similiar programming languages like C/C++.</p>
+
+<p>Memory safety is enforced by language design to allow the detection of memory
+problems at compile time (<em>borrow-checking</em>), which is the least expensive way
+to identify and fix bugs.</p>
+
+<p>The problems to be addressed by borrow-checking are:</p>
+
+<ul>
+<li>pointers used after freed memory (dangling pointers)</li>
+<li><em>data races</em> when two or more pointers access the same memory location at
+the same time, where at least one of them is writing, and the operations are
+not synchronized like iterating via a collection and removing or adding an
+element (iterator invalidation)</li>
+<li>others &hellip;</li>
+</ul>
+
+<h3 id="stack-and-heap:8691ca427c8973748f4a9b5adccfe7b8">Stack and heap</h3>
+
+<p><em>Rust</em> divides the program memory like other programmming languages in stack and
+heap. While the stack is of limited size, the heap can grow as needed.</p>
+
+<p>Primitive values are stored on the stack, while values of complex types are
+stored on the heap. Heap values are referenced by variables on the stack.</p>
+
+<p>In the variable binding (<code>let</code>)</p>
+
+<pre><code class="language-rust">let v: Vec&lt;i32&gt; = vec![1, 2, 3];
+</code></pre>
+
+<p>the variable <code>v</code> is a stack-allocated reference (pointer) to a
+heap-allocated vector (<code>Vec&lt;i32&gt;</code>).
+<a target="_blank" href="http://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20v%3A%20Vec%3Ci32%3E%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%7D"><button class="playground">Run</button></a></p>
+
+<h3 id="immutable-and-mutable-variables:8691ca427c8973748f4a9b5adccfe7b8">Immutable and mutable variables</h3>
+
+<p>In <em>Rust</em> variables are by default <strong>immutable</strong>.
+<a target="_blank" href="http://play.rust-lang.org/?code=fn%20main()%0D%0A%7B%0D%0A%20%20%20%20let%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20v.push(4)%3B%0D%0A%7D"><button class="playground">Run</button></a></p>
+
+<pre><code class="language-rust">let v = vec![1, 2, 3];
+v.push(4); // error: cannot borrow immutable local variable `v` as mutable
+</code></pre>
+
+<p>If you want to change the value of a variable, it must be declared explictly as
+<strong>mutable</strong> with the keyword <em>mut</em>.
+<a target="_blank" href="http://play.rust-lang.org/?code=fn%20main()%0D%0A%7B%0D%0A%20%20%20%20let%20mut%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20v.push(4)%3B%0D%0A%7D"><button class="playground">Run</button></a></p>
+
+<pre><code class="language-rust">let mut v2 = vec![1, 2, 3];
+v2.push(4);
+</code></pre>
+
+<h3 id="ownership:8691ca427c8973748f4a9b5adccfe7b8">Ownership</h3>
+
+<p>A variable binding has the <em>ownership</em> <sup class="footnote-ref" id="fnref:8691ca427c8973748f4a9b5adccfe7b8:1"><a rel="footnote" href="#fn:8691ca427c8973748f4a9b5adccfe7b8:1">1</a></sup> of what it is bound to.</p>
+
+<p>There can be only <strong>one</strong> owner at a time, which is <strong>enforced</strong> by the compiler.</p>
+
+<p>Only the owner can change the object it points to.</p>
+
+<p>When the owner goes out of scope, <em>Rust</em> will clean up everything: in our example
+the reference on the stack and the vector on the heap.</p>
+
+<p>The owner can <em>move</em> its ownership to another variable.
+<a target="_blank" href="http://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20let%20v2%20%3D%20v%3B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D"><button class="playground">Run</button></a></p>
+
+<pre><code class="language-rust">let v = vec![1, 2, 3];
+let v2 = v; // move ownership to 'v2'
+println!(&quot;{:?}&quot;, v); // error: use of moved value: `v`
+</code></pre>
+
+<p>If the ownerhship is moved to another variable the original owner can <strong>not</strong>
+access the referenced value anymore.</p>
+
+<p>The ownership is also moved when a variable is passed as argument to a function.
+<a target="_blank" href="http://play.rust-lang.org/?code=fn%20do_something(w%3A%20Vec%3Ci32%3E)%20%7B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20w)%3B%0D%0A%7D%0D%0A%0D%0Afn%20main()%20%7B%0D%0A%20%20%20%20let%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20do_something(v)%3B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D"><button class="playground">Run</button></a></p>
+
+<pre><code class="language-rust">fn do_something(w: Vec&lt;i32&gt;) {
+    println!(&quot;{:?}&quot;, w);
+}
+let v = vec![1, 2, 3];
+do_something(v);
+println!(&quot;{:?}&quot;, v); // use of moved value: `v`
+</code></pre>
+
+<p>With the <em>move</em> semantic the reponsibility for freeing the memory is always
+clear when going ot of scope.</p>
+
+<p>Other languages use <em>garbage collection</em> (Java) or left the problem to the
+programmer (C/C++).</p>
+
+<h3 id="borrowing:8691ca427c8973748f4a9b5adccfe7b8">Borrowing</h3>
+
+<p><em>Borrowing</em> <sup class="footnote-ref" id="fnref:8691ca427c8973748f4a9b5adccfe7b8:2"><a rel="footnote" href="#fn:8691ca427c8973748f4a9b5adccfe7b8:2">2</a></sup> deals with <strong>references</strong> (or pointers). Instead of taking over
+the ownership like variables a reference <em>borrows</em> the ownership only.
+<a target="_blank" href="https://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20let%20v2%20%3D%20%26v%3B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D"><button class="playground">Run</button></a></p>
+
+<pre><code class="language-rust">let v = vec![1, 2, 3];
+let v2 = &amp;v; // 'v2' borrows ownership of 'v'
+println!(&quot;{:?}&quot;, v);
+</code></pre>
+
+<p>A binding that borrows something does not deallocate the resource when it goes
+out of scope. This is left to the owner and enforced by the compiler.</p>
+
+<p>Consequently any borrow must last for a scope no greater than that of the owner.</p>
+
+<p>You may have as many references as you like, since <strong>none</strong> of them is writing.</p>
+
+<p>If you are writing, you may have two or more references to the same memory, but
+only <strong>one</strong> must be <em>mutable</em> at the time.</p>
+
+<p>And: If you have one mutable reference (<code>&amp;mut</code>) you may <strong>not</strong> have any other
+references to the same resource in the <strong>same</strong> scope.</p>
+
+<p>The following example produces a compile error, because the parameter <code>v</code> of
+the <code>println!</code> function (the truth is it is a macro with a function call behind)
+is bound to an immutable reference.
+<a target="_blank" href="http://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20mut%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20let%20v2%20%3D%20%26mut%20v%3B%0D%0A%20%20%20%20v2.push(4)%3B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D"><button class="playground">Run</button></a></p>
+
+<pre><code class="language-rust">let mut v = vec![1, 2, 3];
+let v2 = &amp;mut v; // mutable reference
+v2.push(4);
+println!(&quot;{:?}&quot;, v); // error: cannot borrow `v` as immutable because it is also borrowed as mutable
+</code></pre>
+
+<p>To ensure the <em>Rust</em> rules the mutable reference <code>v2</code> must be scoped.
+<a target="_blank" href="http://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20mut%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20let%20v2%20%3D%20%26mut%20v%3B%0D%0A%20%20%20%20%20%20%20%20v2.push(4)%3B%0D%0A%20%20%20%20%7D%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D"><button class="playground">Run</button></a></p>
+
+<pre><code class="language-rust">let mut v = vec![1, 2, 3];
+{
+    let v2 = &amp;mut v; // mutable reference
+    v2.push(4);
+}
+println!(&quot;{:?}&quot;, v); // prints [1, 2, 3, 4]
+</code></pre>
+
+<p>Therefore <em>Rust</em> requires a strong thinking in scopes.</p>
+
+<!--
+You may have one or the other of these two kinds of borrows, but not both at
+the same time:
+
+- one or more references (`&T`) to a resource
+- exactly one mutable reference (`&mut T`)
+-->
+
+<h3 id="lifetimes:8691ca427c8973748f4a9b5adccfe7b8">Lifetimes</h3>
+
+<p>A lifetime <sup class="footnote-ref" id="fnref:8691ca427c8973748f4a9b5adccfe7b8:3"><a rel="footnote" href="#fn:8691ca427c8973748f4a9b5adccfe7b8:3">3</a></sup> describes the scope that a reference is valid for.</p>
+
+<p>The compiler inserts lifetime annotations implicitly to detect &ldquo;use after free&rdquo;
+situations. Technically, every reference has a lifetime associated with it, but
+the compiler allows you to omit it in common cases (<em>Lifetime Elision</em>).</p>
+
+<p>In some cases the lifetime must be specified explictly.
+<a target="_blank" href="http://play.rust-lang.org/?code=struct%20Person%20%7B%0D%0A%20%20%20%20age%3A%20%26u32,%0D%0A%7D%0D%0A%0D%0Afn%20main()%20%7B%0D%0A%20%20%20%20let%20a%20%3D%2099u32%3B%0D%0A%20%20%20%20let%20p%20%3D%20Person%20%7B%20age%3A%20%26a%20%7D%3B%0D%0A%7D"><button class="playground">Run</button></a></p>
+
+<pre><code class="language-rust">struct Person {
+    age: &amp;u32, // error: missing lifetime specifier
+}
+let a = 99u32;
+let p = Person { age: &amp;a };
+</code></pre>
+
+<p>With <code>&lt;‘x&gt;</code> we say that there is a lifetime named <code>x</code>. With <code>&amp;'x</code> we say that the
+reference <code>age</code> must have a lifetime of <code>x</code> or less. It is common to use single
+letters to represent lifetimes, but you could use anything you want, e.g. also
+<code>'life</code>.
+<a target="_blank" href="http://play.rust-lang.org/?code=struct%20Person%3C'x%3E%20%7B%0D%0A%20%20%20%20age%3A%20%26'x%20u32,%0D%0A%7D%0D%0A%0D%0Afn%20main()%20%7B%0D%0A%20%20%20%20let%20a%20%3D%2099u32%3B%0D%0A%20%20%20%20let%20p%20%3D%20Person%20%7B%20age%3A%20%26a%20%7D%3B%0D%0A%7D"><button class="playground">Run</button></a></p>
+
+<pre><code class="language-rust">struct Person&lt;'x&gt; {
+    age: &amp;'x u32,
+}
+let a = 99u32;
+let p = Person { age: &amp;a };
+</code></pre>
+
+<p><a target="_blank" href="http://play.rust-lang.org/?code=struct%20Person%3C'x%3E%20%7B%0D%0A%20%20%20%20age%3A%20%26'x%20u32,%0D%0A%7D%0D%0A%0D%0Afn%20main()%20%7B%0D%0A%20%20%20%20let%20p%3B%0D%0A%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20let%20a%20%3D%2099u32%3B%0D%0A%20%20%20%20%20%20%20%20p%20%3D%20Person%20%7B%20age%3A%20%26a%20%7D%3B%0D%0A%20%20%20%20%7D%0D%0A%7D"><button class="playground">Run</button></a></p>
+
+<pre><code class="language-rust">struct Person&lt;'x&gt; {
+    age: &amp;'x u32,
+}
+let p;
+{
+    let a = 99u32;
+    p = Person { age: &amp;a }; // error: `a` does not live long enough
+}
+</code></pre>
+
+<h3 id="points-left-open:8691ca427c8973748f4a9b5adccfe7b8">Points left open</h3>
+
+<ul>
+<li>copy trait</li>
+</ul>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:8691ca427c8973748f4a9b5adccfe7b8:1"><a href="https://doc.rust-lang.org/book/ownership.html">Ownership</a>
+ <a class="footnote-return" href="#fnref:8691ca427c8973748f4a9b5adccfe7b8:1"><sup>[return]</sup></a></li>
+<li id="fn:8691ca427c8973748f4a9b5adccfe7b8:2"><a href="https://doc.rust-lang.org/book/references-and-borrowing.html">References and Borrowing</a>
+ <a class="footnote-return" href="#fnref:8691ca427c8973748f4a9b5adccfe7b8:2"><sup>[return]</sup></a></li>
+<li id="fn:8691ca427c8973748f4a9b5adccfe7b8:3"><a href="https://doc.rust-lang.org/book/lifetimes.html">Lifetimes</a>
+ <a class="footnote-return" href="#fnref:8691ca427c8973748f4a9b5adccfe7b8:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="http://ges0909.github.io/">G. Schrader</a></h4>
+  
+  <p>Read <a href="http://ges0909.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Memory%20Safety%20in%20Rust&amp;url=http%3a%2f%2fges0909.github.io%2fpost%2f6-memory-safety-in-rust%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fges0909.github.io%2fpost%2f6-memory-safety-in-rust%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2fges0909.github.io%2fpost%2f6-memory-safety-in-rust%2f&amp;description=Memory%20Safety%20in%20Rust"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2fges0909.github.io%2fpost%2f6-memory-safety-in-rust%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+
+
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">Overview Rust vs. Go</a> </section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="http://ges0909.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="http://ges0909.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="http://ges0909.github.io/js/index.js"></script>
+    
+</body>
+</html>
+

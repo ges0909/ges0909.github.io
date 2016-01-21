@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on Overview Rust vs. Go</title>
+    <link>http://ges0909.github.io/tags/go/</link>
+    <description>Recent content in Go on Overview Rust vs. Go</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Jan 2016 00:00:00 +0100</lastBuildDate>
+    <atom:link href="http://ges0909.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>When the things started</title>
+      <link>http://ges0909.github.io/post/1-when-the-things-started/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
+      
+      <guid>http://ges0909.github.io/post/1-when-the-things-started/</guid>
+      <description>&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Go (Google)&lt;/th&gt;
+&lt;th&gt;Rust (Mozilla)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Started as side project&lt;/td&gt;
+&lt;td&gt;2007&lt;/td&gt;
+&lt;td&gt;2006&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Officially announced&lt;/td&gt;
+&lt;td&gt;2009&lt;/td&gt;
+&lt;td&gt;2010&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;1st stable production rel.&lt;/td&gt;
+&lt;td&gt;Mar 2012&lt;/td&gt;
+&lt;td&gt;May 2015&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Last update&lt;/td&gt;
+&lt;td&gt;Dec 2015 (1.5.2)&lt;/td&gt;
+&lt;td&gt;Dec 2015 (1.5.0)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Popularity of Rust and Go</title>
+      <link>http://ges0909.github.io/post/2-popularity-of-rust-and-go/</link>
+      <pubDate>Sat, 02 Jan 2016 00:00:00 +0100</pubDate>
+      
+      <guid>http://ges0909.github.io/post/2-popularity-of-rust-and-go/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://ges0909.github.io/img/TIOBE_Teil_1.jpg&#34; alt=&#34;Tiobe Index - Mainstream&#34; /&gt;
+&lt;img src=&#34;http://ges0909.github.io/img/TIOBE_Teil_2.jpg&#34; alt=&#34;Tiobe Index - Go and Rust&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fa0e4c7b8d2cb0b4c8277ad4372809bf:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:fa0e4c7b8d2cb0b4c8277ad4372809bf:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fa0e4c7b8d2cb0b4c8277ad4372809bf:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:fa0e4c7b8d2cb0b4c8277ad4372809bf:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:fa0e4c7b8d2cb0b4c8277ad4372809bf:1&#34;&gt;&lt;a href=&#34;http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html&#34;&gt;TIOBE Index&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fa0e4c7b8d2cb0b4c8277ad4372809bf:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:fa0e4c7b8d2cb0b4c8277ad4372809bf:2&#34;&gt;&lt;a href=&#34;http://tweetdeck.twitter.com/&#34;&gt;Twitter Search: rustlang OR golang&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fa0e4c7b8d2cb0b4c8277ad4372809bf:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Things Rust and Go have in common</title>
+      <link>http://ges0909.github.io/post/3-things-rust-and-go-have-in-common/</link>
+      <pubDate>Sun, 03 Jan 2016 00:00:00 +0100</pubDate>
+      
+      <guid>http://ges0909.github.io/post/3-things-rust-and-go-have-in-common/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;Claim to be a &lt;em&gt;Systems Programming Language&lt;/em&gt;: Hardware-related, performance-critical
+software like operating systems. etc. &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:544e58b157eb9873ffc5251c389a7ad0:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:544e58b157eb9873ffc5251c389a7ad0:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;Cross platform: Compiler generates native code for different target platforms
+(no VM as for Java).&lt;/li&gt;
+&lt;li&gt;Strict compilation checkings. Unused packages and variables will prevent
+compilation in &lt;em&gt;Go&lt;/em&gt;. And &lt;em&gt;Rust&lt;/em&gt; users experience &amp;ldquo;fighting with the borrow checker&amp;rdquo;,
+where the  compiler refuses to compile a program that the author thinks is valid.&lt;/li&gt;
+&lt;li&gt;Strong, open source standard libraries.&lt;/li&gt;
+&lt;li&gt;Useful tools (&amp;ldquo;batteries included&amp;rdquo;):
+
+&lt;ul&gt;
+&lt;li&gt;Build tool with package manager and dependency control&lt;/li&gt;
+&lt;li&gt;Unit test support&lt;/li&gt;
+&lt;li&gt;Code formatter&lt;/li&gt;
+&lt;li&gt;Documentation tool: For example in &lt;em&gt;Rust&lt;/em&gt; with doc comments code examples may
+be run as tests.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Language features:
+
+&lt;ul&gt;
+&lt;li&gt;Well-known datatypes like primitive, string, array, vector, slice, struct,
+enum, pointers (reference)&lt;/li&gt;
+&lt;li&gt;Well-known control structures like condition, loop and switch (Rust: &lt;em&gt;match&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;Statically typed&lt;/li&gt;
+&lt;li&gt;Automatic type inference&lt;/li&gt;
+&lt;li&gt;Multiple return values (in &lt;em&gt;Rust&lt;/em&gt; as tuples)&lt;/li&gt;
+&lt;li&gt;Functional programming constructs (closures, etc.)&lt;/li&gt;
+&lt;li&gt;No real object-orientation: no classes and no inheritance&lt;/li&gt;
+&lt;li&gt;Interfaces&lt;/li&gt;
+&lt;li&gt;Organizing code in packages (Rust: &lt;em&gt;crates&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;Reflection (ability of a program to examine its own structure, particulary its types)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;C&lt;/em&gt;-binding&lt;/li&gt;
+&lt;li&gt;etc.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;The Computer Language Benchmarks Game: &lt;a href=&#34;http://benchmarksgame.alioth.debian.org/u64q/compare.php?lang=rust&amp;amp;lang2=go&#34;&gt;Rust programs versus Go&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:544e58b157eb9873ffc5251c389a7ad0:1&#34;&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/System_programming&#34;&gt;Wikipedia: System programming&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:544e58b157eb9873ffc5251c389a7ad0:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Go Language Features</title>
+      <link>http://ges0909.github.io/post/5-go-language-features/</link>
+      <pubDate>Wed, 06 Jan 2016 00:00:00 +0100</pubDate>
+      
+      <guid>http://ges0909.github.io/post/5-go-language-features/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;Simplicity as principle for the language design.
+
+&lt;ul&gt;
+&lt;li&gt;(simple) exception handling with &lt;code&gt;panic&lt;/code&gt; and &lt;code&gt;recover&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;delay function with &lt;code&gt;defer&lt;/code&gt; until surrounding function returns
+&lt;a target=&#34;_blank&#34; href=&#34;https://play.golang.org/p/It_BOFsQ8l&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;etc.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Compiler produces a single, statically linked executable.&lt;/li&gt;
+&lt;li&gt;Concurrency is baked into the language to scale well on multiple core.&lt;/li&gt;
+&lt;li&gt;No &lt;em&gt;Generics&lt;/em&gt; (parameter types &lt;code&gt;&amp;lt;T, ...&amp;gt;&lt;/code&gt;) &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:01f58e2ad12776559b794e4e8c4fcd69:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:01f58e2ad12776559b794e4e8c4fcd69:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;No full memory control due to garbage collection.&lt;/li&gt;
+&lt;li&gt;Strong for:
+
+&lt;ul&gt;
+&lt;li&gt;Web development: The standard library provides everything to build a web
+server, do routing, html templates, file serving, res/req handling, databases, etc.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;ldquo;&lt;em&gt;Fast build times, small binaries, one file, built in formatting, great tooling,
+built in test framework, profilers, a nice concurrency model? Wow, sold!&lt;/em&gt;&amp;rdquo; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:01f58e2ad12776559b794e4e8c4fcd69:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:01f58e2ad12776559b794e4e8c4fcd69:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:01f58e2ad12776559b794e4e8c4fcd69:1&#34;&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Generic_programming&#34;&gt;Generic programming&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:01f58e2ad12776559b794e4e8c4fcd69:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:01f58e2ad12776559b794e4e8c4fcd69:2&#34;&gt;&lt;a href=&#34;http://jimplush.com/talk/2015/12/19/moving-a-team-from-scala-to-golang/&#34;&gt;Moving a team from Scala to Golang&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:01f58e2ad12776559b794e4e8c4fcd69:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Concurrency with Goroutines and Channels in Go</title>
+      <link>http://ges0909.github.io/post/7-concurrency-with-goroutines-and-channels-in-go/</link>
+      <pubDate>Thu, 07 Jan 2016 00:00:00 +0100</pubDate>
+      
+      <guid>http://ges0909.github.io/post/7-concurrency-with-goroutines-and-channels-in-go/</guid>
+      <description>
+
+&lt;p&gt;&lt;em&gt;Go&lt;/em&gt; has inbuilt primitives for concurrency called &lt;em&gt;Goroutines&lt;/em&gt; and &lt;em&gt;Channels&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;goroutines:5663cb7d71d0acbaf0e413be5f72e710&#34;&gt;Goroutines&lt;/h3&gt;
+
+&lt;p&gt;A &lt;em&gt;Goroutine&lt;/em&gt; is a function (or: method, closure) running concurrently with other
+groutines in the same address space.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:5663cb7d71d0acbaf0e413be5f72e710:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:5663cb7d71d0acbaf0e413be5f72e710:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; Goroutines may be thought as a &lt;em&gt;Unix&lt;/em&gt;
+command running in background with &lt;code&gt;&amp;amp;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Goroutines are a bit like threads, but they are are much cheaper&lt;/em&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:5663cb7d71d0acbaf0e413be5f72e710:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:5663cb7d71d0acbaf0e413be5f72e710:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;. &lt;em&gt;It is
+practical to create hundreds of thousands of goroutines.&lt;/em&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:5663cb7d71d0acbaf0e413be5f72e710:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:5663cb7d71d0acbaf0e413be5f72e710:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; They are multiplexed
+by the Go runtime onto multiple OS threads so if one should block, e.g. while
+waiting for I/O, others continue to run.&lt;/p&gt;
+
+&lt;p&gt;Prefix a function call with the &lt;strong&gt;go&lt;/strong&gt; keyword to run it in a new goroutine. When
+the call completes, the goroutine exits, silently.
+&lt;a target=&#34;_blank&#34; href=&#34;http://play.golang.org/p/aPgFvX4az7&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func writer() {
+    fmt.Println(&amp;quot;function&amp;quot;)
+}
+go writer() // function
+go func() { // closure
+    fmt.Println(&amp;quot;closure&amp;quot;)
+}()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;channels:5663cb7d71d0acbaf0e413be5f72e710&#34;&gt;Channels&lt;/h3&gt;
+
+&lt;p&gt;Goroutines exchange values through &lt;em&gt;channels&lt;/em&gt;. Channels may be thought as a
+&lt;em&gt;Unix&lt;/em&gt; pipe, except the data are &lt;strong&gt;typed values&lt;/strong&gt; and not an unstructured
+stream of bytes (type-safe communication).&lt;/p&gt;
+
+&lt;p&gt;The sending goroutine blocks until the receiving goroutine has taken the value.
+If both communicate through a buffered channel the same is true when the buffer
+is full. Thefore channels synchronize running goroutines also.&lt;/p&gt;
+
+&lt;p&gt;A channel is allocated with the &lt;strong&gt;make&lt;/strong&gt; keyword.&lt;/p&gt;
+
+&lt;p&gt;&lt;a target=&#34;_blank&#34; href=&#34;http://play.golang.org/p/Brd0bxSeOn&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func writer(ch chan int) {
+    for i := 1; i &amp;lt;= 10; i++ {
+        ch &amp;lt;- i
+    }
+    close(ch)
+}
+ch := make(chan int)
+go writer(ch)
+go func() { // reader
+    n, more := &amp;lt;-ch
+    for more {
+        fmt.Println(n)
+        n, more = &amp;lt;-ch
+    }
+}()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For advanced concurrency patterns see &lt;a href=&#34;https://blog.golang.org/pipelines&#34;&gt;Go Concurrency Patterns: Pipelines and cancellation&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:5663cb7d71d0acbaf0e413be5f72e710:1&#34;&gt;&lt;a href=&#34;https://golang.org/doc/effective_go.html#goroutines&#34;&gt;Effective Go&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:5663cb7d71d0acbaf0e413be5f72e710:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:5663cb7d71d0acbaf0e413be5f72e710:2&#34;&gt;&lt;a href=&#34;http://talks.golang.org/2012/waza.slide#32&#34;&gt;Goroutines are not threads&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:5663cb7d71d0acbaf0e413be5f72e710:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:5663cb7d71d0acbaf0e413be5f72e710:3&#34;&gt;&lt;a href=&#34;https://golang.org/doc/faq#goroutines&#34;&gt;Frequently Asked Questions (FAQ)&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:5663cb7d71d0acbaf0e413be5f72e710:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Conclusion</title>
+      <link>http://ges0909.github.io/post/8-conclusion/</link>
+      <pubDate>Wed, 13 Jan 2016 14:22:41 +0100</pubDate>
+      
+      <guid>http://ges0909.github.io/post/8-conclusion/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Rust&lt;/em&gt; and &lt;em&gt;Go&lt;/em&gt;, both have their pros and cons.&lt;/p&gt;
+
+&lt;p&gt;They are promoted by &lt;em&gt;Mozilla&lt;/em&gt; resp. &lt;em&gt;Google&lt;/em&gt;, are open source and have
+large communities in background. This ensures progress for further development.&lt;/p&gt;
+
+&lt;p&gt;Both don&amp;rsquo;t invent the things new. Instead they borrow ideas from existing
+languages and mix imperative (procedural) and functional principles.&lt;/p&gt;
+
+&lt;p&gt;Nevertheless &lt;em&gt;Rust&lt;/em&gt;&amp;rsquo;s ownership and borrowing of values for memory safety is
+unique. But it has its costs: A steep learning curve.&lt;/p&gt;
+
+&lt;p&gt;In contrast &lt;em&gt;Go&lt;/em&gt; leaves out well-known features like &lt;em&gt;Generics&lt;/em&gt; to stay simple.
+Though statically typed and compiled it may feel like a dynamically typed,
+interpreted language.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Rust&lt;/em&gt; allows &amp;ldquo;bare metal&amp;rdquo; programming and could substitute C/C++ in future.
+Its &lt;em&gt;Foreign Function Interface&lt;/em&gt; (FFI) allows the usage of other languages.&lt;/p&gt;
+
+&lt;p&gt;Against this &lt;em&gt;Go&lt;/em&gt; is not suitable for &amp;ldquo;bare metal&amp;rdquo; programming due to its
+garbage collection. But &lt;em&gt;Go&lt;/em&gt; is more mature because it published the first
+stable release, usable for production, three years before &lt;em&gt;Rust&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;As result &lt;em&gt;Go&lt;/em&gt; is already is used for programming serious software, like the
+hyped &lt;a href=&#34;http://www.docker.com&#34;&gt;Docker&lt;/a&gt;. But this another story! &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;&lt;a href=&#34;http://de.slideshare.net/jpetazzo/docker-and-go-why-did-we-decide-to-write-docker-in-go&#34;&gt;Docker and Go: why did we decide to write Docker in Go?&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

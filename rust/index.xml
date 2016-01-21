@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rusts on Overview Rust vs. Go</title>
+    <link>http://ges0909.github.io/rust/</link>
+    <description>Recent content in Rusts on Overview Rust vs. Go</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Jan 2016 13:29:41 +0100</lastBuildDate>
+    <atom:link href="http://ges0909.github.io/rust/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Rust Essentials</title>
+      <link>http://ges0909.github.io/rust</link>
+      <pubDate>Tue, 19 Jan 2016 13:29:41 +0100</pubDate>
+      
+      <guid>http://ges0909.github.io/rust</guid>
+      <description>
+
+&lt;p&gt;Excerpts from the book &lt;a href=&#34;https://www.packtpub.com/application-development/rust-essentials&#34;&gt;Rust Essentials: Discover how to use Rust to write fast, secure, and concurrent systems and applications&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;1-starting-with-rust:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;1 Starting with Rust&lt;/h1&gt;
+
+&lt;h2 id=&#34;working-with-cargo:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Working with Cargo&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cargo new &amp;lt;libname&amp;gt;       # create a new lib crate
+cargo new &amp;lt;binname&amp;gt; --bin # create new binary crate
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;+-- Cargo.toml
+|
++-- src
+    |
+    +-- main.rs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;cargo-toml:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Cargo.toml&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;[package]
+name = &amp;quot;libname&amp;quot;
+version = &amp;quot;0.1.0&amp;quot;
+authors = [&amp;quot;your name &amp;lt;you@example.com&amp;gt;&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To build a binary add:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;[[bin]]
+name = &amp;quot;progname&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;build:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Build&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cargo build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;+-- Cargo.lock
+|-- Cargo.toml
+|
++-- src
+|   |
+|   +-- main.rs
+|
++-- taget
+    |
+    +-- build
+    |
+    +-- deps
+    |
+    +-- examples
+    |
+    +-- native
+    |
+    +-- progname
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;cargo-lock:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Cargo.lock&lt;/h5&gt;
+
+&lt;p&gt;Freezes packages the project depends on to ensure a repeatable build process.&lt;/p&gt;
+
+&lt;h5 id=&#34;other-cargo-commands:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Other cargo commands&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cargo run
+cargo test
+cargo update              # update and build depending packages
+cargo update -p log
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-developer-tools:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;The developer tools&lt;/h2&gt;
+
+&lt;p&gt;Central crates repository: &lt;a href=&#34;https://crates.io&#34;&gt;The Rust community’s crate host&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;other-tools:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Other tools&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Eclipse Plugin: &lt;em&gt;RustDT&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;2-using-variables-and-types:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;2 Using Variables and Types&lt;/h1&gt;
+
+&lt;p&gt;To be added.&lt;/p&gt;
+
+&lt;h1 id=&#34;3-using-functions-and-control-structures:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;3 Using Functions and Control Structures&lt;/h1&gt;
+
+&lt;p&gt;To be added.&lt;/p&gt;
+
+&lt;h1 id=&#34;4-structering-data-and-matching-patterns:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;4 Structering Data and Matching Patterns&lt;/h1&gt;
+
+&lt;h2 id=&#34;result-and-option:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Result and Option&lt;/h2&gt;
+
+&lt;p&gt;A &lt;code&gt;Result&lt;/code&gt; is a special kind of &lt;code&gt;enum&lt;/code&gt; that is defined in the standard library.
+It is used as type for return values and can either be &lt;code&gt;Ok&lt;/code&gt; (success) or &lt;code&gt;Err&lt;/code&gt;
+(failed).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;enum Result&amp;lt;T, E&amp;gt; {
+  Ok(T),
+  Err(E),
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;T&lt;/code&gt; and &lt;code&gt;E&lt;/code&gt; are type parameters and the term &lt;code&gt;&amp;lt;T, E&amp;gt;&lt;/code&gt; introduces a &lt;em&gt;Generic&lt;/em&gt;.
+They are placeholders for concrete types to be filled in by the compiler.
+&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/LgYMya&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;fn myfunc(n: isize) -&amp;gt; Result&amp;lt;isize, String&amp;gt; {
+    if n % 2 == 0 {
+        return Result::Ok(n);
+    }
+    Result::Err(format!(&amp;quot;odd number {}&amp;quot;, n))
+}
+let r = match myfunc(2) {
+    Ok(num) =&amp;gt; num,
+    Err(msg) =&amp;gt; panic!(msg),
+};
+println!(&amp;quot;{}&amp;quot;, r);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Matching &lt;code&gt;Result&amp;lt;T, E&amp;gt;&lt;/code&gt; is such a common pattern, so that there is a method
+&lt;code&gt;Result::unwrap&lt;/code&gt; in the standard library doing this.
+&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/neJFUd&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;let r = myfunc(4);
+println!(&amp;quot;{}&amp;quot;, r.unwrap()); // unwrap() is doing the match
+let r = myfunc(3);
+println!(&amp;quot;{}&amp;quot;, r.unwrap()); // unwrap() and panic
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;5-generalizing-code-with-high-order-functions-and-parametrization:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;5 Generalizing Code with High-order Functions and Parametrization&lt;/h1&gt;
+
+&lt;h2 id=&#34;high-order-functions-and-closures:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;High-order functions and Closures&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;fn triples(s: i32) -&amp;gt; i32 {
+  3 * s
+}
+fn again&amp;lt;F: Fn(i32) -&amp;gt; i32&amp;gt;(f: F, s: i32) -&amp;gt; i32 {
+  f(f(s))
+}
+r = again(triples, 2)       // high-order
+r = again(|n| { 3 * n}, 2)  // closure
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/ZWMyhv&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;6-pointers-and-memory-safety:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;6 Pointers and Memory Safety&lt;/h1&gt;
+
+&lt;h1 id=&#34;7-organizing-code-and-macros:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;7 Organizing Code and Macros&lt;/h1&gt;
+
+&lt;h2 id=&#34;building-crates:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Building crates&lt;/h2&gt;
+
+&lt;p&gt;Crates are compilation units to be distributed.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;rustc --crate-type=lib structs.rs                       # creates libstructs.rlib
+rustc --crate-type=lib --crate-name=mycrate structs.rs  # creates libmycrate.rlib
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The same may be reached in source code with attributes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;#![crate_type = &amp;quot;lib&amp;quot;] // bin, lib, rlib, dylib, staticlib
+#![crate_name = &amp;quot;mycrate&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;defining-a-module:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Defining a module&lt;/h2&gt;
+
+&lt;p&gt;Crate code is contained in an implicit &lt;em&gt;root&lt;/em&gt; module. Crate code can be splitted
+to submodules under the &lt;em&gt;root&lt;/em&gt; module (hierachy).&lt;/p&gt;
+
+&lt;p&gt;Modules act as namespace. A module is defined with &lt;code&gt;mod modename { ... }&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Modules can be defined in other modules (nested modules). Modules are &lt;strong&gt;not&lt;/strong&gt;
+compiled individually. Only crates compile.&lt;/p&gt;
+
+&lt;p&gt;For each source file the compiler defines a module implicitly. To import items
+use &lt;code&gt;mod filname::item&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-visibility-of-items:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;The visibility of items&lt;/h2&gt;
+
+&lt;p&gt;By default an item is visible within its module only. To export it use &lt;code&gt;pub&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;If the module containg the item is part of hierarchy (nested), the modules on
+the path must be also declared as public (&lt;code&gt;pub mod ...&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;Struct fields are by default private. To make them visible struct &lt;strong&gt;and&lt;/strong&gt; fields
+must be made public with &lt;code&gt;pub&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;importing-modules-and-file-hierachy:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Importing modules and file hierachy&lt;/h2&gt;
+
+&lt;p&gt;Importing a module is done with keyword the &lt;code&gt;use&lt;/code&gt;. It is preferred to import
+modules at the top of the source file.&lt;/p&gt;
+
+&lt;p&gt;Inside a module &lt;code&gt;self::&lt;/code&gt; or &lt;code&gt;super::&lt;/code&gt; can be prepended to a module path.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;use module::item;             // import single item from another module
+use module::item as shorter;  // rename imported item
+use module::{item1,item2};    // import several items at once
+use module::*;                // import all public items, not preferred
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;importing-external-crates:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Importing external crates&lt;/h2&gt;
+
+&lt;p&gt;Importing all &lt;strong&gt;public&lt;/strong&gt; items from an external crate is done with
+&lt;code&gt;extern crate cratename&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A crate creates an implicit module with the same name. An item is accessed with
+&lt;code&gt;cratename::item&lt;/code&gt; or it is imported with &lt;code&gt;use cratename::item&lt;/code&gt; before.&lt;/p&gt;
+
+&lt;h2 id=&#34;adding-external-crates-to-a-project:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Adding external crates to a project&lt;/h2&gt;
+
+&lt;h5 id=&#34;cargo-toml-1:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Cargo.toml&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;[dependencies]
+log = &amp;quot;0.2.5&amp;quot;
+mac = &amp;quot;*&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;8-concurrency-and-parallism:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;8 Concurrency and Parallism&lt;/h1&gt;
+
+&lt;p&gt;To be added.&lt;/p&gt;
+
+&lt;h1 id=&#34;9-programming-at-the-boundaries:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;9 Programming at the Boundaries&lt;/h1&gt;
+
+&lt;p&gt;To be added.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

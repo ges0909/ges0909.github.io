@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Concurrency with Goroutines and Channels in Go &middot;  Overview Rust vs. Go" />
+  	<meta property="og:site_name" content="Overview Rust vs. Go" />
+  	<meta property="og:url" content="http://ges0909.github.io/post/7-concurrency-with-goroutines-and-channels-in-go/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-01-07T00:00:00&#43;01:00" />
+
+    
+    <meta property="og:article:tag" content="go" />
+    
+    
+
+  <title>
+     Concurrency with Goroutines and Channels in Go &middot;  Overview Rust vs. Go
+  </title>
+
+    <meta name="description" content="BrightONE Workshop Berlin, February 2016" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="http://ges0909.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="http://ges0909.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="http://ges0909.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="http://ges0909.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="http://ges0909.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Overview Rust vs. Go" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.15" />
+
+    <link rel="canonical" href="http://ges0909.github.io/post/7-concurrency-with-goroutines-and-channels-in-go/" />
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">Home</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/rust/">Rust</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/go/">Go</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://www.xing.com/profile/Gerrit_Schrader2">About</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="http://ges0909.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head no-cover">
+  <nav class="main-nav clearfix">
+
+
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Concurrency with Goroutines and Channels in Go</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-01-07T00:00:00&#43;01:00">
+            Jan 7, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="http://ges0909.github.io/tags/go/">#go</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<p><em>Go</em> has inbuilt primitives for concurrency called <em>Goroutines</em> and <em>Channels</em>.</p>
+
+<h3 id="goroutines:5663cb7d71d0acbaf0e413be5f72e710">Goroutines</h3>
+
+<p>A <em>Goroutine</em> is a function (or: method, closure) running concurrently with other
+groutines in the same address space.<sup class="footnote-ref" id="fnref:5663cb7d71d0acbaf0e413be5f72e710:1"><a rel="footnote" href="#fn:5663cb7d71d0acbaf0e413be5f72e710:1">1</a></sup> Goroutines may be thought as a <em>Unix</em>
+command running in background with <code>&amp;</code>.</p>
+
+<p><em>Goroutines are a bit like threads, but they are are much cheaper</em><sup class="footnote-ref" id="fnref:5663cb7d71d0acbaf0e413be5f72e710:2"><a rel="footnote" href="#fn:5663cb7d71d0acbaf0e413be5f72e710:2">2</a></sup>. <em>It is
+practical to create hundreds of thousands of goroutines.</em><sup class="footnote-ref" id="fnref:5663cb7d71d0acbaf0e413be5f72e710:3"><a rel="footnote" href="#fn:5663cb7d71d0acbaf0e413be5f72e710:3">3</a></sup> They are multiplexed
+by the Go runtime onto multiple OS threads so if one should block, e.g. while
+waiting for I/O, others continue to run.</p>
+
+<p>Prefix a function call with the <strong>go</strong> keyword to run it in a new goroutine. When
+the call completes, the goroutine exits, silently.
+<a target="_blank" href="http://play.golang.org/p/aPgFvX4az7"><button class="playground">Run</button></a></p>
+
+<pre><code class="language-go">func writer() {
+    fmt.Println(&quot;function&quot;)
+}
+go writer() // function
+go func() { // closure
+    fmt.Println(&quot;closure&quot;)
+}()
+</code></pre>
+
+<h3 id="channels:5663cb7d71d0acbaf0e413be5f72e710">Channels</h3>
+
+<p>Goroutines exchange values through <em>channels</em>. Channels may be thought as a
+<em>Unix</em> pipe, except the data are <strong>typed values</strong> and not an unstructured
+stream of bytes (type-safe communication).</p>
+
+<p>The sending goroutine blocks until the receiving goroutine has taken the value.
+If both communicate through a buffered channel the same is true when the buffer
+is full. Thefore channels synchronize running goroutines also.</p>
+
+<p>A channel is allocated with the <strong>make</strong> keyword.</p>
+
+<p><a target="_blank" href="http://play.golang.org/p/Brd0bxSeOn"><button class="playground">Run</button></a></p>
+
+<pre><code class="language-go">func writer(ch chan int) {
+    for i := 1; i &lt;= 10; i++ {
+        ch &lt;- i
+    }
+    close(ch)
+}
+ch := make(chan int)
+go writer(ch)
+go func() { // reader
+    n, more := &lt;-ch
+    for more {
+        fmt.Println(n)
+        n, more = &lt;-ch
+    }
+}()
+</code></pre>
+
+<p>For advanced concurrency patterns see <a href="https://blog.golang.org/pipelines">Go Concurrency Patterns: Pipelines and cancellation</a>.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:5663cb7d71d0acbaf0e413be5f72e710:1"><a href="https://golang.org/doc/effective_go.html#goroutines">Effective Go</a>
+ <a class="footnote-return" href="#fnref:5663cb7d71d0acbaf0e413be5f72e710:1"><sup>[return]</sup></a></li>
+<li id="fn:5663cb7d71d0acbaf0e413be5f72e710:2"><a href="http://talks.golang.org/2012/waza.slide#32">Goroutines are not threads</a>
+ <a class="footnote-return" href="#fnref:5663cb7d71d0acbaf0e413be5f72e710:2"><sup>[return]</sup></a></li>
+<li id="fn:5663cb7d71d0acbaf0e413be5f72e710:3"><a href="https://golang.org/doc/faq#goroutines">Frequently Asked Questions (FAQ)</a>
+ <a class="footnote-return" href="#fnref:5663cb7d71d0acbaf0e413be5f72e710:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="http://ges0909.github.io/">G. Schrader</a></h4>
+  
+  <p>Read <a href="http://ges0909.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Concurrency%20with%20Goroutines%20and%20Channels%20in%20Go&amp;url=http%3a%2f%2fges0909.github.io%2fpost%2f7-concurrency-with-goroutines-and-channels-in-go%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fges0909.github.io%2fpost%2f7-concurrency-with-goroutines-and-channels-in-go%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2fges0909.github.io%2fpost%2f7-concurrency-with-goroutines-and-channels-in-go%2f&amp;description=Concurrency%20with%20Goroutines%20and%20Channels%20in%20Go"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2fges0909.github.io%2fpost%2f7-concurrency-with-goroutines-and-channels-in-go%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+
+
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">Overview Rust vs. Go</a> </section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="http://ges0909.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="http://ges0909.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="http://ges0909.github.io/js/index.js"></script>
+    
+</body>
+</html>
+

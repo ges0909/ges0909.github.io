@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Rust Essentials &middot;  Overview Rust vs. Go" />
+  	<meta property="og:site_name" content="Overview Rust vs. Go" />
+  	<meta property="og:url" content="http://ges0909.github.io/rust" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-01-19T13:29:41&#43;01:00" />
+
+    
+    <meta property="og:article:tag" content="rust" />
+    
+    
+
+  <title>
+     Rust Essentials &middot;  Overview Rust vs. Go
+  </title>
+
+    <meta name="description" content="BrightONE Workshop Berlin, February 2016" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="http://ges0909.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="http://ges0909.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="http://ges0909.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="http://ges0909.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="http://ges0909.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Overview Rust vs. Go" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.15" />
+
+    <link rel="canonical" href="http://ges0909.github.io/rust" />
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">Home</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/rust/">Rust</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/go/">Go</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://www.xing.com/profile/Gerrit_Schrader2">About</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="http://ges0909.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head no-cover">
+  <nav class="main-nav clearfix">
+
+
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post rust">
+
+    <header class="post-header">
+        <h1 class="post-title">Rust Essentials</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+         
+          <span class="post-tag small"><a href="http://ges0909.github.io/tags/rust/">#rust</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<p>Excerpts from the book <a href="https://www.packtpub.com/application-development/rust-essentials">Rust Essentials: Discover how to use Rust to write fast, secure, and concurrent systems and applications</a>.</p>
+
+<h1 id="1-starting-with-rust:ad9c8f6f42254960fe5b739482b7b720">1 Starting with Rust</h1>
+
+<h2 id="working-with-cargo:ad9c8f6f42254960fe5b739482b7b720">Working with Cargo</h2>
+
+<pre><code class="language-bash">cargo new &lt;libname&gt;       # create a new lib crate
+cargo new &lt;binname&gt; --bin # create new binary crate
+</code></pre>
+
+<pre><code>+-- Cargo.toml
+|
++-- src
+    |
+    +-- main.rs
+</code></pre>
+
+<h5 id="cargo-toml:ad9c8f6f42254960fe5b739482b7b720">Cargo.toml</h5>
+
+<pre><code class="language-toml">[package]
+name = &quot;libname&quot;
+version = &quot;0.1.0&quot;
+authors = [&quot;your name &lt;you@example.com&gt;&quot;]
+</code></pre>
+
+<p>To build a binary add:</p>
+
+<pre><code class="language-toml">[[bin]]
+name = &quot;progname&quot;
+</code></pre>
+
+<h5 id="build:ad9c8f6f42254960fe5b739482b7b720">Build</h5>
+
+<pre><code class="language-bash">cargo build
+</code></pre>
+
+<pre><code>+-- Cargo.lock
+|-- Cargo.toml
+|
++-- src
+|   |
+|   +-- main.rs
+|
++-- taget
+    |
+    +-- build
+    |
+    +-- deps
+    |
+    +-- examples
+    |
+    +-- native
+    |
+    +-- progname
+</code></pre>
+
+<h5 id="cargo-lock:ad9c8f6f42254960fe5b739482b7b720">Cargo.lock</h5>
+
+<p>Freezes packages the project depends on to ensure a repeatable build process.</p>
+
+<h5 id="other-cargo-commands:ad9c8f6f42254960fe5b739482b7b720">Other cargo commands</h5>
+
+<pre><code class="language-bash">cargo run
+cargo test
+cargo update              # update and build depending packages
+cargo update -p log
+</code></pre>
+
+<h2 id="the-developer-tools:ad9c8f6f42254960fe5b739482b7b720">The developer tools</h2>
+
+<p>Central crates repository: <a href="https://crates.io">The Rust community’s crate host</a>.</p>
+
+<h2 id="other-tools:ad9c8f6f42254960fe5b739482b7b720">Other tools</h2>
+
+<ul>
+<li>Eclipse Plugin: <em>RustDT</em></li>
+</ul>
+
+<h1 id="2-using-variables-and-types:ad9c8f6f42254960fe5b739482b7b720">2 Using Variables and Types</h1>
+
+<p>To be added.</p>
+
+<h1 id="3-using-functions-and-control-structures:ad9c8f6f42254960fe5b739482b7b720">3 Using Functions and Control Structures</h1>
+
+<p>To be added.</p>
+
+<h1 id="4-structering-data-and-matching-patterns:ad9c8f6f42254960fe5b739482b7b720">4 Structering Data and Matching Patterns</h1>
+
+<h2 id="result-and-option:ad9c8f6f42254960fe5b739482b7b720">Result and Option</h2>
+
+<p>A <code>Result</code> is a special kind of <code>enum</code> that is defined in the standard library.
+It is used as type for return values and can either be <code>Ok</code> (success) or <code>Err</code>
+(failed).</p>
+
+<pre><code class="language-rust">enum Result&lt;T, E&gt; {
+  Ok(T),
+  Err(E),
+}
+</code></pre>
+
+<p>The <code>T</code> and <code>E</code> are type parameters and the term <code>&lt;T, E&gt;</code> introduces a <em>Generic</em>.
+They are placeholders for concrete types to be filled in by the compiler.
+<a target="_blank" href="http://is.gd/LgYMya"><button class="playground">Run</button></a></p>
+
+<pre><code class="language-rust">fn myfunc(n: isize) -&gt; Result&lt;isize, String&gt; {
+    if n % 2 == 0 {
+        return Result::Ok(n);
+    }
+    Result::Err(format!(&quot;odd number {}&quot;, n))
+}
+let r = match myfunc(2) {
+    Ok(num) =&gt; num,
+    Err(msg) =&gt; panic!(msg),
+};
+println!(&quot;{}&quot;, r);
+</code></pre>
+
+<p>Matching <code>Result&lt;T, E&gt;</code> is such a common pattern, so that there is a method
+<code>Result::unwrap</code> in the standard library doing this.
+<a target="_blank" href="http://is.gd/neJFUd"><button class="playground">Run</button></a></p>
+
+<pre><code class="language-rust">let r = myfunc(4);
+println!(&quot;{}&quot;, r.unwrap()); // unwrap() is doing the match
+let r = myfunc(3);
+println!(&quot;{}&quot;, r.unwrap()); // unwrap() and panic
+</code></pre>
+
+<h1 id="5-generalizing-code-with-high-order-functions-and-parametrization:ad9c8f6f42254960fe5b739482b7b720">5 Generalizing Code with High-order Functions and Parametrization</h1>
+
+<h2 id="high-order-functions-and-closures:ad9c8f6f42254960fe5b739482b7b720">High-order functions and Closures</h2>
+
+<pre><code class="language-rust">fn triples(s: i32) -&gt; i32 {
+  3 * s
+}
+fn again&lt;F: Fn(i32) -&gt; i32&gt;(f: F, s: i32) -&gt; i32 {
+  f(f(s))
+}
+r = again(triples, 2)       // high-order
+r = again(|n| { 3 * n}, 2)  // closure
+</code></pre>
+
+<p><a target="_blank" href="http://is.gd/ZWMyhv"><button class="playground">Run</button></a></p>
+
+<h1 id="6-pointers-and-memory-safety:ad9c8f6f42254960fe5b739482b7b720">6 Pointers and Memory Safety</h1>
+
+<h1 id="7-organizing-code-and-macros:ad9c8f6f42254960fe5b739482b7b720">7 Organizing Code and Macros</h1>
+
+<h2 id="building-crates:ad9c8f6f42254960fe5b739482b7b720">Building crates</h2>
+
+<p>Crates are compilation units to be distributed.</p>
+
+<pre><code class="language-bash">rustc --crate-type=lib structs.rs                       # creates libstructs.rlib
+rustc --crate-type=lib --crate-name=mycrate structs.rs  # creates libmycrate.rlib
+</code></pre>
+
+<p>The same may be reached in source code with attributes:</p>
+
+<pre><code class="language-rust">#![crate_type = &quot;lib&quot;] // bin, lib, rlib, dylib, staticlib
+#![crate_name = &quot;mycrate&quot;]
+</code></pre>
+
+<h2 id="defining-a-module:ad9c8f6f42254960fe5b739482b7b720">Defining a module</h2>
+
+<p>Crate code is contained in an implicit <em>root</em> module. Crate code can be splitted
+to submodules under the <em>root</em> module (hierachy).</p>
+
+<p>Modules act as namespace. A module is defined with <code>mod modename { ... }</code>.</p>
+
+<p>Modules can be defined in other modules (nested modules). Modules are <strong>not</strong>
+compiled individually. Only crates compile.</p>
+
+<p>For each source file the compiler defines a module implicitly. To import items
+use <code>mod filname::item</code>.</p>
+
+<h2 id="the-visibility-of-items:ad9c8f6f42254960fe5b739482b7b720">The visibility of items</h2>
+
+<p>By default an item is visible within its module only. To export it use <code>pub</code>.</p>
+
+<p>If the module containg the item is part of hierarchy (nested), the modules on
+the path must be also declared as public (<code>pub mod ...</code>).</p>
+
+<p>Struct fields are by default private. To make them visible struct <strong>and</strong> fields
+must be made public with <code>pub</code>.</p>
+
+<h2 id="importing-modules-and-file-hierachy:ad9c8f6f42254960fe5b739482b7b720">Importing modules and file hierachy</h2>
+
+<p>Importing a module is done with keyword the <code>use</code>. It is preferred to import
+modules at the top of the source file.</p>
+
+<p>Inside a module <code>self::</code> or <code>super::</code> can be prepended to a module path.</p>
+
+<pre><code class="language-rust">use module::item;             // import single item from another module
+use module::item as shorter;  // rename imported item
+use module::{item1,item2};    // import several items at once
+use module::*;                // import all public items, not preferred
+</code></pre>
+
+<h2 id="importing-external-crates:ad9c8f6f42254960fe5b739482b7b720">Importing external crates</h2>
+
+<p>Importing all <strong>public</strong> items from an external crate is done with
+<code>extern crate cratename</code>.</p>
+
+<p>A crate creates an implicit module with the same name. An item is accessed with
+<code>cratename::item</code> or it is imported with <code>use cratename::item</code> before.</p>
+
+<h2 id="adding-external-crates-to-a-project:ad9c8f6f42254960fe5b739482b7b720">Adding external crates to a project</h2>
+
+<h5 id="cargo-toml-1:ad9c8f6f42254960fe5b739482b7b720">Cargo.toml</h5>
+
+<pre><code>[dependencies]
+log = &quot;0.2.5&quot;
+mac = &quot;*&quot;
+</code></pre>
+
+<pre><code class="language-rust"></code></pre>
+
+<h1 id="8-concurrency-and-parallism:ad9c8f6f42254960fe5b739482b7b720">8 Concurrency and Parallism</h1>
+
+<p>To be added.</p>
+
+<h1 id="9-programming-at-the-boundaries:ad9c8f6f42254960fe5b739482b7b720">9 Programming at the Boundaries</h1>
+
+<p>To be added.</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="http://ges0909.github.io/">G. Schrader</a></h4>
+  
+  <p>Read <a href="http://ges0909.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this rust</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Rust%20Essentials&amp;url=http%3a%2f%2fges0909.github.io%2frust"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fges0909.github.io%2frust"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2fges0909.github.io%2frust&amp;description=Rust%20Essentials"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2fges0909.github.io%2frust"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+
+
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">Overview Rust vs. Go</a> </section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="http://ges0909.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="http://ges0909.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="http://ges0909.github.io/js/index.js"></script>
+    
+</body>
+</html>
+

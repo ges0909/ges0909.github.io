@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Overview Rust vs. Go</title>
+    <link>http://ges0909.github.io/</link>
+    <description>Recent content on Overview Rust vs. Go</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Jan 2016 00:00:00 +0100</lastBuildDate>
+    <atom:link href="http://ges0909.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>When the things started</title>
+      <link>http://ges0909.github.io/post/1-when-the-things-started/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
+      
+      <guid>http://ges0909.github.io/post/1-when-the-things-started/</guid>
+      <description>&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Go (Google)&lt;/th&gt;
+&lt;th&gt;Rust (Mozilla)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Started as side project&lt;/td&gt;
+&lt;td&gt;2007&lt;/td&gt;
+&lt;td&gt;2006&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Officially announced&lt;/td&gt;
+&lt;td&gt;2009&lt;/td&gt;
+&lt;td&gt;2010&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;1st stable production rel.&lt;/td&gt;
+&lt;td&gt;Mar 2012&lt;/td&gt;
+&lt;td&gt;May 2015&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Last update&lt;/td&gt;
+&lt;td&gt;Dec 2015 (1.5.2)&lt;/td&gt;
+&lt;td&gt;Dec 2015 (1.5.0)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Popularity of Rust and Go</title>
+      <link>http://ges0909.github.io/post/2-popularity-of-rust-and-go/</link>
+      <pubDate>Sat, 02 Jan 2016 00:00:00 +0100</pubDate>
+      
+      <guid>http://ges0909.github.io/post/2-popularity-of-rust-and-go/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://ges0909.github.io/img/TIOBE_Teil_1.jpg&#34; alt=&#34;Tiobe Index - Mainstream&#34; /&gt;
+&lt;img src=&#34;http://ges0909.github.io/img/TIOBE_Teil_2.jpg&#34; alt=&#34;Tiobe Index - Go and Rust&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fa0e4c7b8d2cb0b4c8277ad4372809bf:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:fa0e4c7b8d2cb0b4c8277ad4372809bf:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:fa0e4c7b8d2cb0b4c8277ad4372809bf:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:fa0e4c7b8d2cb0b4c8277ad4372809bf:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:fa0e4c7b8d2cb0b4c8277ad4372809bf:1&#34;&gt;&lt;a href=&#34;http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html&#34;&gt;TIOBE Index&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fa0e4c7b8d2cb0b4c8277ad4372809bf:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:fa0e4c7b8d2cb0b4c8277ad4372809bf:2&#34;&gt;&lt;a href=&#34;http://tweetdeck.twitter.com/&#34;&gt;Twitter Search: rustlang OR golang&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:fa0e4c7b8d2cb0b4c8277ad4372809bf:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Things Rust and Go have in common</title>
+      <link>http://ges0909.github.io/post/3-things-rust-and-go-have-in-common/</link>
+      <pubDate>Sun, 03 Jan 2016 00:00:00 +0100</pubDate>
+      
+      <guid>http://ges0909.github.io/post/3-things-rust-and-go-have-in-common/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;Claim to be a &lt;em&gt;Systems Programming Language&lt;/em&gt;: Hardware-related, performance-critical
+software like operating systems. etc. &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:544e58b157eb9873ffc5251c389a7ad0:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:544e58b157eb9873ffc5251c389a7ad0:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;Cross platform: Compiler generates native code for different target platforms
+(no VM as for Java).&lt;/li&gt;
+&lt;li&gt;Strict compilation checkings. Unused packages and variables will prevent
+compilation in &lt;em&gt;Go&lt;/em&gt;. And &lt;em&gt;Rust&lt;/em&gt; users experience &amp;ldquo;fighting with the borrow checker&amp;rdquo;,
+where the  compiler refuses to compile a program that the author thinks is valid.&lt;/li&gt;
+&lt;li&gt;Strong, open source standard libraries.&lt;/li&gt;
+&lt;li&gt;Useful tools (&amp;ldquo;batteries included&amp;rdquo;):
+
+&lt;ul&gt;
+&lt;li&gt;Build tool with package manager and dependency control&lt;/li&gt;
+&lt;li&gt;Unit test support&lt;/li&gt;
+&lt;li&gt;Code formatter&lt;/li&gt;
+&lt;li&gt;Documentation tool: For example in &lt;em&gt;Rust&lt;/em&gt; with doc comments code examples may
+be run as tests.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Language features:
+
+&lt;ul&gt;
+&lt;li&gt;Well-known datatypes like primitive, string, array, vector, slice, struct,
+enum, pointers (reference)&lt;/li&gt;
+&lt;li&gt;Well-known control structures like condition, loop and switch (Rust: &lt;em&gt;match&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;Statically typed&lt;/li&gt;
+&lt;li&gt;Automatic type inference&lt;/li&gt;
+&lt;li&gt;Multiple return values (in &lt;em&gt;Rust&lt;/em&gt; as tuples)&lt;/li&gt;
+&lt;li&gt;Functional programming constructs (closures, etc.)&lt;/li&gt;
+&lt;li&gt;No real object-orientation: no classes and no inheritance&lt;/li&gt;
+&lt;li&gt;Interfaces&lt;/li&gt;
+&lt;li&gt;Organizing code in packages (Rust: &lt;em&gt;crates&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;Reflection (ability of a program to examine its own structure, particulary its types)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;C&lt;/em&gt;-binding&lt;/li&gt;
+&lt;li&gt;etc.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;The Computer Language Benchmarks Game: &lt;a href=&#34;http://benchmarksgame.alioth.debian.org/u64q/compare.php?lang=rust&amp;amp;lang2=go&#34;&gt;Rust programs versus Go&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:544e58b157eb9873ffc5251c389a7ad0:1&#34;&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/System_programming&#34;&gt;Wikipedia: System programming&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:544e58b157eb9873ffc5251c389a7ad0:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rust Language Features</title>
+      <link>http://ges0909.github.io/post/4-rust-language-features/</link>
+      <pubDate>Mon, 04 Jan 2016 00:00:00 +0100</pubDate>
+      
+      <guid>http://ges0909.github.io/post/4-rust-language-features/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;Immutable and mutable values&lt;/li&gt;
+&lt;li&gt;Enum pattern matching with destructering&lt;/li&gt;
+&lt;li&gt;High-order functions and closures&lt;/li&gt;
+&lt;li&gt;Iterators&lt;/li&gt;
+&lt;li&gt;Generic types and functions&lt;/li&gt;
+&lt;li&gt;Pragmatic object-orientation: no classes, no inheritance, etc.&lt;/li&gt;
+&lt;li&gt;Traits (interfaces) with default implementation&lt;/li&gt;
+&lt;li&gt;Variable&amp;rsquo;s ownership, borrowing and lifetime&lt;/li&gt;
+&lt;li&gt;Macros&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ges0909.github.io/img/Cover_Rust_Essentials.jpg&#34; alt=&#34;Rust Essentials&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Go Language Features</title>
+      <link>http://ges0909.github.io/post/5-go-language-features/</link>
+      <pubDate>Wed, 06 Jan 2016 00:00:00 +0100</pubDate>
+      
+      <guid>http://ges0909.github.io/post/5-go-language-features/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;Simplicity as principle for the language design.
+
+&lt;ul&gt;
+&lt;li&gt;(simple) exception handling with &lt;code&gt;panic&lt;/code&gt; and &lt;code&gt;recover&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;delay function with &lt;code&gt;defer&lt;/code&gt; until surrounding function returns
+&lt;a target=&#34;_blank&#34; href=&#34;https://play.golang.org/p/It_BOFsQ8l&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;etc.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Compiler produces a single, statically linked executable.&lt;/li&gt;
+&lt;li&gt;Concurrency is baked into the language to scale well on multiple core.&lt;/li&gt;
+&lt;li&gt;No &lt;em&gt;Generics&lt;/em&gt; (parameter types &lt;code&gt;&amp;lt;T, ...&amp;gt;&lt;/code&gt;) &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:01f58e2ad12776559b794e4e8c4fcd69:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:01f58e2ad12776559b794e4e8c4fcd69:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;No full memory control due to garbage collection.&lt;/li&gt;
+&lt;li&gt;Strong for:
+
+&lt;ul&gt;
+&lt;li&gt;Web development: The standard library provides everything to build a web
+server, do routing, html templates, file serving, res/req handling, databases, etc.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;ldquo;&lt;em&gt;Fast build times, small binaries, one file, built in formatting, great tooling,
+built in test framework, profilers, a nice concurrency model? Wow, sold!&lt;/em&gt;&amp;rdquo; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:01f58e2ad12776559b794e4e8c4fcd69:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:01f58e2ad12776559b794e4e8c4fcd69:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:01f58e2ad12776559b794e4e8c4fcd69:1&#34;&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Generic_programming&#34;&gt;Generic programming&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:01f58e2ad12776559b794e4e8c4fcd69:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:01f58e2ad12776559b794e4e8c4fcd69:2&#34;&gt;&lt;a href=&#34;http://jimplush.com/talk/2015/12/19/moving-a-team-from-scala-to-golang/&#34;&gt;Moving a team from Scala to Golang&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:01f58e2ad12776559b794e4e8c4fcd69:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Memory Safety in Rust</title>
+      <link>http://ges0909.github.io/post/6-memory-safety-in-rust/</link>
+      <pubDate>Tue, 05 Jan 2016 00:00:00 +0100</pubDate>
+      
+      <guid>http://ges0909.github.io/post/6-memory-safety-in-rust/</guid>
+      <description>
+
+&lt;p&gt;&lt;strong&gt;Ownership&lt;/strong&gt;, &lt;strong&gt;borrowing&lt;/strong&gt; and &lt;strong&gt;lifetime&lt;/strong&gt; are the key concepts to
+reach memory safety of programs. They are the selling points making &lt;em&gt;Rust&lt;/em&gt;
+unique to similiar programming languages like C/C++.&lt;/p&gt;
+
+&lt;p&gt;Memory safety is enforced by language design to allow the detection of memory
+problems at compile time (&lt;em&gt;borrow-checking&lt;/em&gt;), which is the least expensive way
+to identify and fix bugs.&lt;/p&gt;
+
+&lt;p&gt;The problems to be addressed by borrow-checking are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;pointers used after freed memory (dangling pointers)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;data races&lt;/em&gt; when two or more pointers access the same memory location at
+the same time, where at least one of them is writing, and the operations are
+not synchronized like iterating via a collection and removing or adding an
+element (iterator invalidation)&lt;/li&gt;
+&lt;li&gt;others &amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;stack-and-heap:8691ca427c8973748f4a9b5adccfe7b8&#34;&gt;Stack and heap&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Rust&lt;/em&gt; divides the program memory like other programmming languages in stack and
+heap. While the stack is of limited size, the heap can grow as needed.&lt;/p&gt;
+
+&lt;p&gt;Primitive values are stored on the stack, while values of complex types are
+stored on the heap. Heap values are referenced by variables on the stack.&lt;/p&gt;
+
+&lt;p&gt;In the variable binding (&lt;code&gt;let&lt;/code&gt;)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;let v: Vec&amp;lt;i32&amp;gt; = vec![1, 2, 3];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;the variable &lt;code&gt;v&lt;/code&gt; is a stack-allocated reference (pointer) to a
+heap-allocated vector (&lt;code&gt;Vec&amp;lt;i32&amp;gt;&lt;/code&gt;).
+&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20v%3A%20Vec%3Ci32%3E%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;immutable-and-mutable-variables:8691ca427c8973748f4a9b5adccfe7b8&#34;&gt;Immutable and mutable variables&lt;/h3&gt;
+
+&lt;p&gt;In &lt;em&gt;Rust&lt;/em&gt; variables are by default &lt;strong&gt;immutable&lt;/strong&gt;.
+&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=fn%20main()%0D%0A%7B%0D%0A%20%20%20%20let%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20v.push(4)%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;let v = vec![1, 2, 3];
+v.push(4); // error: cannot borrow immutable local variable `v` as mutable
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you want to change the value of a variable, it must be declared explictly as
+&lt;strong&gt;mutable&lt;/strong&gt; with the keyword &lt;em&gt;mut&lt;/em&gt;.
+&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=fn%20main()%0D%0A%7B%0D%0A%20%20%20%20let%20mut%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20v.push(4)%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;let mut v2 = vec![1, 2, 3];
+v2.push(4);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;ownership:8691ca427c8973748f4a9b5adccfe7b8&#34;&gt;Ownership&lt;/h3&gt;
+
+&lt;p&gt;A variable binding has the &lt;em&gt;ownership&lt;/em&gt; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:8691ca427c8973748f4a9b5adccfe7b8:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:8691ca427c8973748f4a9b5adccfe7b8:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; of what it is bound to.&lt;/p&gt;
+
+&lt;p&gt;There can be only &lt;strong&gt;one&lt;/strong&gt; owner at a time, which is &lt;strong&gt;enforced&lt;/strong&gt; by the compiler.&lt;/p&gt;
+
+&lt;p&gt;Only the owner can change the object it points to.&lt;/p&gt;
+
+&lt;p&gt;When the owner goes out of scope, &lt;em&gt;Rust&lt;/em&gt; will clean up everything: in our example
+the reference on the stack and the vector on the heap.&lt;/p&gt;
+
+&lt;p&gt;The owner can &lt;em&gt;move&lt;/em&gt; its ownership to another variable.
+&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20let%20v2%20%3D%20v%3B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;let v = vec![1, 2, 3];
+let v2 = v; // move ownership to &#39;v2&#39;
+println!(&amp;quot;{:?}&amp;quot;, v); // error: use of moved value: `v`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the ownerhship is moved to another variable the original owner can &lt;strong&gt;not&lt;/strong&gt;
+access the referenced value anymore.&lt;/p&gt;
+
+&lt;p&gt;The ownership is also moved when a variable is passed as argument to a function.
+&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=fn%20do_something(w%3A%20Vec%3Ci32%3E)%20%7B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20w)%3B%0D%0A%7D%0D%0A%0D%0Afn%20main()%20%7B%0D%0A%20%20%20%20let%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20do_something(v)%3B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;fn do_something(w: Vec&amp;lt;i32&amp;gt;) {
+    println!(&amp;quot;{:?}&amp;quot;, w);
+}
+let v = vec![1, 2, 3];
+do_something(v);
+println!(&amp;quot;{:?}&amp;quot;, v); // use of moved value: `v`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With the &lt;em&gt;move&lt;/em&gt; semantic the reponsibility for freeing the memory is always
+clear when going ot of scope.&lt;/p&gt;
+
+&lt;p&gt;Other languages use &lt;em&gt;garbage collection&lt;/em&gt; (Java) or left the problem to the
+programmer (C/C++).&lt;/p&gt;
+
+&lt;h3 id=&#34;borrowing:8691ca427c8973748f4a9b5adccfe7b8&#34;&gt;Borrowing&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Borrowing&lt;/em&gt; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:8691ca427c8973748f4a9b5adccfe7b8:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:8691ca427c8973748f4a9b5adccfe7b8:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; deals with &lt;strong&gt;references&lt;/strong&gt; (or pointers). Instead of taking over
+the ownership like variables a reference &lt;em&gt;borrows&lt;/em&gt; the ownership only.
+&lt;a target=&#34;_blank&#34; href=&#34;https://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20let%20v2%20%3D%20%26v%3B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;let v = vec![1, 2, 3];
+let v2 = &amp;amp;v; // &#39;v2&#39; borrows ownership of &#39;v&#39;
+println!(&amp;quot;{:?}&amp;quot;, v);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A binding that borrows something does not deallocate the resource when it goes
+out of scope. This is left to the owner and enforced by the compiler.&lt;/p&gt;
+
+&lt;p&gt;Consequently any borrow must last for a scope no greater than that of the owner.&lt;/p&gt;
+
+&lt;p&gt;You may have as many references as you like, since &lt;strong&gt;none&lt;/strong&gt; of them is writing.&lt;/p&gt;
+
+&lt;p&gt;If you are writing, you may have two or more references to the same memory, but
+only &lt;strong&gt;one&lt;/strong&gt; must be &lt;em&gt;mutable&lt;/em&gt; at the time.&lt;/p&gt;
+
+&lt;p&gt;And: If you have one mutable reference (&lt;code&gt;&amp;amp;mut&lt;/code&gt;) you may &lt;strong&gt;not&lt;/strong&gt; have any other
+references to the same resource in the &lt;strong&gt;same&lt;/strong&gt; scope.&lt;/p&gt;
+
+&lt;p&gt;The following example produces a compile error, because the parameter &lt;code&gt;v&lt;/code&gt; of
+the &lt;code&gt;println!&lt;/code&gt; function (the truth is it is a macro with a function call behind)
+is bound to an immutable reference.
+&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20mut%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20let%20v2%20%3D%20%26mut%20v%3B%0D%0A%20%20%20%20v2.push(4)%3B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;let mut v = vec![1, 2, 3];
+let v2 = &amp;amp;mut v; // mutable reference
+v2.push(4);
+println!(&amp;quot;{:?}&amp;quot;, v); // error: cannot borrow `v` as immutable because it is also borrowed as mutable
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To ensure the &lt;em&gt;Rust&lt;/em&gt; rules the mutable reference &lt;code&gt;v2&lt;/code&gt; must be scoped.
+&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20mut%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20let%20v2%20%3D%20%26mut%20v%3B%0D%0A%20%20%20%20%20%20%20%20v2.push(4)%3B%0D%0A%20%20%20%20%7D%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;let mut v = vec![1, 2, 3];
+{
+    let v2 = &amp;amp;mut v; // mutable reference
+    v2.push(4);
+}
+println!(&amp;quot;{:?}&amp;quot;, v); // prints [1, 2, 3, 4]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Therefore &lt;em&gt;Rust&lt;/em&gt; requires a strong thinking in scopes.&lt;/p&gt;
+
+&lt;!--
+You may have one or the other of these two kinds of borrows, but not both at
+the same time:
+
+- one or more references (`&amp;T`) to a resource
+- exactly one mutable reference (`&amp;mut T`)
+--&gt;
+
+&lt;h3 id=&#34;lifetimes:8691ca427c8973748f4a9b5adccfe7b8&#34;&gt;Lifetimes&lt;/h3&gt;
+
+&lt;p&gt;A lifetime &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:8691ca427c8973748f4a9b5adccfe7b8:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:8691ca427c8973748f4a9b5adccfe7b8:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; describes the scope that a reference is valid for.&lt;/p&gt;
+
+&lt;p&gt;The compiler inserts lifetime annotations implicitly to detect &amp;ldquo;use after free&amp;rdquo;
+situations. Technically, every reference has a lifetime associated with it, but
+the compiler allows you to omit it in common cases (&lt;em&gt;Lifetime Elision&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;In some cases the lifetime must be specified explictly.
+&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=struct%20Person%20%7B%0D%0A%20%20%20%20age%3A%20%26u32,%0D%0A%7D%0D%0A%0D%0Afn%20main()%20%7B%0D%0A%20%20%20%20let%20a%20%3D%2099u32%3B%0D%0A%20%20%20%20let%20p%20%3D%20Person%20%7B%20age%3A%20%26a%20%7D%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;struct Person {
+    age: &amp;amp;u32, // error: missing lifetime specifier
+}
+let a = 99u32;
+let p = Person { age: &amp;amp;a };
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With &lt;code&gt;&amp;lt;‘x&amp;gt;&lt;/code&gt; we say that there is a lifetime named &lt;code&gt;x&lt;/code&gt;. With &lt;code&gt;&amp;amp;&#39;x&lt;/code&gt; we say that the
+reference &lt;code&gt;age&lt;/code&gt; must have a lifetime of &lt;code&gt;x&lt;/code&gt; or less. It is common to use single
+letters to represent lifetimes, but you could use anything you want, e.g. also
+&lt;code&gt;&#39;life&lt;/code&gt;.
+&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=struct%20Person%3C&#39;x%3E%20%7B%0D%0A%20%20%20%20age%3A%20%26&#39;x%20u32,%0D%0A%7D%0D%0A%0D%0Afn%20main()%20%7B%0D%0A%20%20%20%20let%20a%20%3D%2099u32%3B%0D%0A%20%20%20%20let%20p%20%3D%20Person%20%7B%20age%3A%20%26a%20%7D%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;struct Person&amp;lt;&#39;x&amp;gt; {
+    age: &amp;amp;&#39;x u32,
+}
+let a = 99u32;
+let p = Person { age: &amp;amp;a };
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=struct%20Person%3C&#39;x%3E%20%7B%0D%0A%20%20%20%20age%3A%20%26&#39;x%20u32,%0D%0A%7D%0D%0A%0D%0Afn%20main()%20%7B%0D%0A%20%20%20%20let%20p%3B%0D%0A%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20let%20a%20%3D%2099u32%3B%0D%0A%20%20%20%20%20%20%20%20p%20%3D%20Person%20%7B%20age%3A%20%26a%20%7D%3B%0D%0A%20%20%20%20%7D%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;struct Person&amp;lt;&#39;x&amp;gt; {
+    age: &amp;amp;&#39;x u32,
+}
+let p;
+{
+    let a = 99u32;
+    p = Person { age: &amp;amp;a }; // error: `a` does not live long enough
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;points-left-open:8691ca427c8973748f4a9b5adccfe7b8&#34;&gt;Points left open&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;copy trait&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:8691ca427c8973748f4a9b5adccfe7b8:1&#34;&gt;&lt;a href=&#34;https://doc.rust-lang.org/book/ownership.html&#34;&gt;Ownership&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:8691ca427c8973748f4a9b5adccfe7b8:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:8691ca427c8973748f4a9b5adccfe7b8:2&#34;&gt;&lt;a href=&#34;https://doc.rust-lang.org/book/references-and-borrowing.html&#34;&gt;References and Borrowing&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:8691ca427c8973748f4a9b5adccfe7b8:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:8691ca427c8973748f4a9b5adccfe7b8:3&#34;&gt;&lt;a href=&#34;https://doc.rust-lang.org/book/lifetimes.html&#34;&gt;Lifetimes&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:8691ca427c8973748f4a9b5adccfe7b8:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Concurrency with Goroutines and Channels in Go</title>
+      <link>http://ges0909.github.io/post/7-concurrency-with-goroutines-and-channels-in-go/</link>
+      <pubDate>Thu, 07 Jan 2016 00:00:00 +0100</pubDate>
+      
+      <guid>http://ges0909.github.io/post/7-concurrency-with-goroutines-and-channels-in-go/</guid>
+      <description>
+
+&lt;p&gt;&lt;em&gt;Go&lt;/em&gt; has inbuilt primitives for concurrency called &lt;em&gt;Goroutines&lt;/em&gt; and &lt;em&gt;Channels&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;goroutines:5663cb7d71d0acbaf0e413be5f72e710&#34;&gt;Goroutines&lt;/h3&gt;
+
+&lt;p&gt;A &lt;em&gt;Goroutine&lt;/em&gt; is a function (or: method, closure) running concurrently with other
+groutines in the same address space.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:5663cb7d71d0acbaf0e413be5f72e710:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:5663cb7d71d0acbaf0e413be5f72e710:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; Goroutines may be thought as a &lt;em&gt;Unix&lt;/em&gt;
+command running in background with &lt;code&gt;&amp;amp;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Goroutines are a bit like threads, but they are are much cheaper&lt;/em&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:5663cb7d71d0acbaf0e413be5f72e710:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:5663cb7d71d0acbaf0e413be5f72e710:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;. &lt;em&gt;It is
+practical to create hundreds of thousands of goroutines.&lt;/em&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:5663cb7d71d0acbaf0e413be5f72e710:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:5663cb7d71d0acbaf0e413be5f72e710:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; They are multiplexed
+by the Go runtime onto multiple OS threads so if one should block, e.g. while
+waiting for I/O, others continue to run.&lt;/p&gt;
+
+&lt;p&gt;Prefix a function call with the &lt;strong&gt;go&lt;/strong&gt; keyword to run it in a new goroutine. When
+the call completes, the goroutine exits, silently.
+&lt;a target=&#34;_blank&#34; href=&#34;http://play.golang.org/p/aPgFvX4az7&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func writer() {
+    fmt.Println(&amp;quot;function&amp;quot;)
+}
+go writer() // function
+go func() { // closure
+    fmt.Println(&amp;quot;closure&amp;quot;)
+}()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;channels:5663cb7d71d0acbaf0e413be5f72e710&#34;&gt;Channels&lt;/h3&gt;
+
+&lt;p&gt;Goroutines exchange values through &lt;em&gt;channels&lt;/em&gt;. Channels may be thought as a
+&lt;em&gt;Unix&lt;/em&gt; pipe, except the data are &lt;strong&gt;typed values&lt;/strong&gt; and not an unstructured
+stream of bytes (type-safe communication).&lt;/p&gt;
+
+&lt;p&gt;The sending goroutine blocks until the receiving goroutine has taken the value.
+If both communicate through a buffered channel the same is true when the buffer
+is full. Thefore channels synchronize running goroutines also.&lt;/p&gt;
+
+&lt;p&gt;A channel is allocated with the &lt;strong&gt;make&lt;/strong&gt; keyword.&lt;/p&gt;
+
+&lt;p&gt;&lt;a target=&#34;_blank&#34; href=&#34;http://play.golang.org/p/Brd0bxSeOn&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func writer(ch chan int) {
+    for i := 1; i &amp;lt;= 10; i++ {
+        ch &amp;lt;- i
+    }
+    close(ch)
+}
+ch := make(chan int)
+go writer(ch)
+go func() { // reader
+    n, more := &amp;lt;-ch
+    for more {
+        fmt.Println(n)
+        n, more = &amp;lt;-ch
+    }
+}()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For advanced concurrency patterns see &lt;a href=&#34;https://blog.golang.org/pipelines&#34;&gt;Go Concurrency Patterns: Pipelines and cancellation&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:5663cb7d71d0acbaf0e413be5f72e710:1&#34;&gt;&lt;a href=&#34;https://golang.org/doc/effective_go.html#goroutines&#34;&gt;Effective Go&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:5663cb7d71d0acbaf0e413be5f72e710:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:5663cb7d71d0acbaf0e413be5f72e710:2&#34;&gt;&lt;a href=&#34;http://talks.golang.org/2012/waza.slide#32&#34;&gt;Goroutines are not threads&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:5663cb7d71d0acbaf0e413be5f72e710:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:5663cb7d71d0acbaf0e413be5f72e710:3&#34;&gt;&lt;a href=&#34;https://golang.org/doc/faq#goroutines&#34;&gt;Frequently Asked Questions (FAQ)&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:5663cb7d71d0acbaf0e413be5f72e710:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Conclusion</title>
+      <link>http://ges0909.github.io/post/8-conclusion/</link>
+      <pubDate>Wed, 13 Jan 2016 14:22:41 +0100</pubDate>
+      
+      <guid>http://ges0909.github.io/post/8-conclusion/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Rust&lt;/em&gt; and &lt;em&gt;Go&lt;/em&gt;, both have their pros and cons.&lt;/p&gt;
+
+&lt;p&gt;They are promoted by &lt;em&gt;Mozilla&lt;/em&gt; resp. &lt;em&gt;Google&lt;/em&gt;, are open source and have
+large communities in background. This ensures progress for further development.&lt;/p&gt;
+
+&lt;p&gt;Both don&amp;rsquo;t invent the things new. Instead they borrow ideas from existing
+languages and mix imperative (procedural) and functional principles.&lt;/p&gt;
+
+&lt;p&gt;Nevertheless &lt;em&gt;Rust&lt;/em&gt;&amp;rsquo;s ownership and borrowing of values for memory safety is
+unique. But it has its costs: A steep learning curve.&lt;/p&gt;
+
+&lt;p&gt;In contrast &lt;em&gt;Go&lt;/em&gt; leaves out well-known features like &lt;em&gt;Generics&lt;/em&gt; to stay simple.
+Though statically typed and compiled it may feel like a dynamically typed,
+interpreted language.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Rust&lt;/em&gt; allows &amp;ldquo;bare metal&amp;rdquo; programming and could substitute C/C++ in future.
+Its &lt;em&gt;Foreign Function Interface&lt;/em&gt; (FFI) allows the usage of other languages.&lt;/p&gt;
+
+&lt;p&gt;Against this &lt;em&gt;Go&lt;/em&gt; is not suitable for &amp;ldquo;bare metal&amp;rdquo; programming due to its
+garbage collection. But &lt;em&gt;Go&lt;/em&gt; is more mature because it published the first
+stable release, usable for production, three years before &lt;em&gt;Rust&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;As result &lt;em&gt;Go&lt;/em&gt; is already is used for programming serious software, like the
+hyped &lt;a href=&#34;http://www.docker.com&#34;&gt;Docker&lt;/a&gt;. But this another story! &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;&lt;a href=&#34;http://de.slideshare.net/jpetazzo/docker-and-go-why-did-we-decide-to-write-docker-in-go&#34;&gt;Docker and Go: why did we decide to write Docker in Go?&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rust Essentials</title>
+      <link>http://ges0909.github.io/rust</link>
+      <pubDate>Tue, 19 Jan 2016 13:29:41 +0100</pubDate>
+      
+      <guid>http://ges0909.github.io/rust</guid>
+      <description>
+
+&lt;p&gt;Excerpts from the book &lt;a href=&#34;https://www.packtpub.com/application-development/rust-essentials&#34;&gt;Rust Essentials: Discover how to use Rust to write fast, secure, and concurrent systems and applications&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;1-starting-with-rust:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;1 Starting with Rust&lt;/h1&gt;
+
+&lt;h2 id=&#34;working-with-cargo:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Working with Cargo&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cargo new &amp;lt;libname&amp;gt;       # create a new lib crate
+cargo new &amp;lt;binname&amp;gt; --bin # create new binary crate
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;+-- Cargo.toml
+|
++-- src
+    |
+    +-- main.rs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;cargo-toml:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Cargo.toml&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;[package]
+name = &amp;quot;libname&amp;quot;
+version = &amp;quot;0.1.0&amp;quot;
+authors = [&amp;quot;your name &amp;lt;you@example.com&amp;gt;&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To build a binary add:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;[[bin]]
+name = &amp;quot;progname&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;build:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Build&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cargo build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;+-- Cargo.lock
+|-- Cargo.toml
+|
++-- src
+|   |
+|   +-- main.rs
+|
++-- taget
+    |
+    +-- build
+    |
+    +-- deps
+    |
+    +-- examples
+    |
+    +-- native
+    |
+    +-- progname
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;cargo-lock:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Cargo.lock&lt;/h5&gt;
+
+&lt;p&gt;Freezes packages the project depends on to ensure a repeatable build process.&lt;/p&gt;
+
+&lt;h5 id=&#34;other-cargo-commands:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Other cargo commands&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cargo run
+cargo test
+cargo update              # update and build depending packages
+cargo update -p log
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-developer-tools:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;The developer tools&lt;/h2&gt;
+
+&lt;p&gt;Central crates repository: &lt;a href=&#34;https://crates.io&#34;&gt;The Rust community’s crate host&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;other-tools:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Other tools&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Eclipse Plugin: &lt;em&gt;RustDT&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;2-using-variables-and-types:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;2 Using Variables and Types&lt;/h1&gt;
+
+&lt;p&gt;To be added.&lt;/p&gt;
+
+&lt;h1 id=&#34;3-using-functions-and-control-structures:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;3 Using Functions and Control Structures&lt;/h1&gt;
+
+&lt;p&gt;To be added.&lt;/p&gt;
+
+&lt;h1 id=&#34;4-structering-data-and-matching-patterns:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;4 Structering Data and Matching Patterns&lt;/h1&gt;
+
+&lt;h2 id=&#34;result-and-option:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Result and Option&lt;/h2&gt;
+
+&lt;p&gt;A &lt;code&gt;Result&lt;/code&gt; is a special kind of &lt;code&gt;enum&lt;/code&gt; that is defined in the standard library.
+It is used as type for return values and can either be &lt;code&gt;Ok&lt;/code&gt; (success) or &lt;code&gt;Err&lt;/code&gt;
+(failed).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;enum Result&amp;lt;T, E&amp;gt; {
+  Ok(T),
+  Err(E),
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;T&lt;/code&gt; and &lt;code&gt;E&lt;/code&gt; are type parameters and the term &lt;code&gt;&amp;lt;T, E&amp;gt;&lt;/code&gt; introduces a &lt;em&gt;Generic&lt;/em&gt;.
+They are placeholders for concrete types to be filled in by the compiler.
+&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/LgYMya&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;fn myfunc(n: isize) -&amp;gt; Result&amp;lt;isize, String&amp;gt; {
+    if n % 2 == 0 {
+        return Result::Ok(n);
+    }
+    Result::Err(format!(&amp;quot;odd number {}&amp;quot;, n))
+}
+let r = match myfunc(2) {
+    Ok(num) =&amp;gt; num,
+    Err(msg) =&amp;gt; panic!(msg),
+};
+println!(&amp;quot;{}&amp;quot;, r);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Matching &lt;code&gt;Result&amp;lt;T, E&amp;gt;&lt;/code&gt; is such a common pattern, so that there is a method
+&lt;code&gt;Result::unwrap&lt;/code&gt; in the standard library doing this.
+&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/neJFUd&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;let r = myfunc(4);
+println!(&amp;quot;{}&amp;quot;, r.unwrap()); // unwrap() is doing the match
+let r = myfunc(3);
+println!(&amp;quot;{}&amp;quot;, r.unwrap()); // unwrap() and panic
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;5-generalizing-code-with-high-order-functions-and-parametrization:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;5 Generalizing Code with High-order Functions and Parametrization&lt;/h1&gt;
+
+&lt;h2 id=&#34;high-order-functions-and-closures:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;High-order functions and Closures&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;fn triples(s: i32) -&amp;gt; i32 {
+  3 * s
+}
+fn again&amp;lt;F: Fn(i32) -&amp;gt; i32&amp;gt;(f: F, s: i32) -&amp;gt; i32 {
+  f(f(s))
+}
+r = again(triples, 2)       // high-order
+r = again(|n| { 3 * n}, 2)  // closure
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/ZWMyhv&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;6-pointers-and-memory-safety:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;6 Pointers and Memory Safety&lt;/h1&gt;
+
+&lt;h1 id=&#34;7-organizing-code-and-macros:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;7 Organizing Code and Macros&lt;/h1&gt;
+
+&lt;h2 id=&#34;building-crates:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Building crates&lt;/h2&gt;
+
+&lt;p&gt;Crates are compilation units to be distributed.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;rustc --crate-type=lib structs.rs                       # creates libstructs.rlib
+rustc --crate-type=lib --crate-name=mycrate structs.rs  # creates libmycrate.rlib
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The same may be reached in source code with attributes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;#![crate_type = &amp;quot;lib&amp;quot;] // bin, lib, rlib, dylib, staticlib
+#![crate_name = &amp;quot;mycrate&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;defining-a-module:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Defining a module&lt;/h2&gt;
+
+&lt;p&gt;Crate code is contained in an implicit &lt;em&gt;root&lt;/em&gt; module. Crate code can be splitted
+to submodules under the &lt;em&gt;root&lt;/em&gt; module (hierachy).&lt;/p&gt;
+
+&lt;p&gt;Modules act as namespace. A module is defined with &lt;code&gt;mod modename { ... }&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Modules can be defined in other modules (nested modules). Modules are &lt;strong&gt;not&lt;/strong&gt;
+compiled individually. Only crates compile.&lt;/p&gt;
+
+&lt;p&gt;For each source file the compiler defines a module implicitly. To import items
+use &lt;code&gt;mod filname::item&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-visibility-of-items:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;The visibility of items&lt;/h2&gt;
+
+&lt;p&gt;By default an item is visible within its module only. To export it use &lt;code&gt;pub&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;If the module containg the item is part of hierarchy (nested), the modules on
+the path must be also declared as public (&lt;code&gt;pub mod ...&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;Struct fields are by default private. To make them visible struct &lt;strong&gt;and&lt;/strong&gt; fields
+must be made public with &lt;code&gt;pub&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;importing-modules-and-file-hierachy:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Importing modules and file hierachy&lt;/h2&gt;
+
+&lt;p&gt;Importing a module is done with keyword the &lt;code&gt;use&lt;/code&gt;. It is preferred to import
+modules at the top of the source file.&lt;/p&gt;
+
+&lt;p&gt;Inside a module &lt;code&gt;self::&lt;/code&gt; or &lt;code&gt;super::&lt;/code&gt; can be prepended to a module path.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;use module::item;             // import single item from another module
+use module::item as shorter;  // rename imported item
+use module::{item1,item2};    // import several items at once
+use module::*;                // import all public items, not preferred
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;importing-external-crates:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Importing external crates&lt;/h2&gt;
+
+&lt;p&gt;Importing all &lt;strong&gt;public&lt;/strong&gt; items from an external crate is done with
+&lt;code&gt;extern crate cratename&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A crate creates an implicit module with the same name. An item is accessed with
+&lt;code&gt;cratename::item&lt;/code&gt; or it is imported with &lt;code&gt;use cratename::item&lt;/code&gt; before.&lt;/p&gt;
+
+&lt;h2 id=&#34;adding-external-crates-to-a-project:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Adding external crates to a project&lt;/h2&gt;
+
+&lt;h5 id=&#34;cargo-toml-1:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Cargo.toml&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;[dependencies]
+log = &amp;quot;0.2.5&amp;quot;
+mac = &amp;quot;*&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;8-concurrency-and-parallism:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;8 Concurrency and Parallism&lt;/h1&gt;
+
+&lt;p&gt;To be added.&lt;/p&gt;
+
+&lt;h1 id=&#34;9-programming-at-the-boundaries:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;9 Programming at the Boundaries&lt;/h1&gt;
+
+&lt;p&gt;To be added.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
