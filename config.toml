@@ -1,0 +1,40 @@
+baseurl = "http://ges0909.github.io/"
+languageCode = "en-us"
+title = "Overview Rust vs. Go"
+draft = "false"
+theme = "casper"
+#theme = "kasper"
+#theme = "slide"
+#canonifyurls = true
+#disqusShortname = "g_schrader"
+
+[params]
+  description = "BrightONE Workshop Berlin, February 2016"
+  author = "G. Schrader"
+  DateForm = "Jan 2 2006" # case matters
+  cover = "/img/cover.jpg"
+# logo = "img/logo_rund.png"
+
+[taxonomies]
+  tag = "tags"
+# category = "categories"
+
+[[menu.main]]
+  name = "Home"
+  url = "/" # index.html
+  weight = -200
+
+[[menu.main]]
+  name = "Rust"
+  url = "/rust/"
+  weight = -180
+
+[[menu.main]]
+  name = "Go"
+  url = "/go/"
+  weight = -160
+
+[[menu.main]]
+  name = "About"
+  url = "http://www.xing.com/profile/Gerrit_Schrader2"
+  weight = -100
