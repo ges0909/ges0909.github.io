@@ -1,0 +1,35 @@
+{{ partial "header.html" . }}
+
+{{if .Site.Params.cover}}
+  <header class="main-header " style="background-image: url({{.Site.BaseURL}}{{.Site.Params.cover}})">
+{{else}}
+  <header class="main-header no-cover">
+{{end}}
+
+  <!-- key events to start presentation -->
+  {{ if .Data.Pages }}
+  <script type="text/javascript">
+  document.onkeydown = function(e) {
+    e = e || window.event; // 'window.event' to work with IE pre IE9 versions
+    if ( e.keyCode == '37' /*left*/ ) {
+      {{ range last 1 .Data.Pages }}
+        window.location = {{ .Permalink }}; // first post
+      {{ end }}
+    }
+    if ( e.keyCode == '39' /*right*/ ) {
+      {{ range first 1 .Data.Pages }}
+        window.location = {{ .Permalink }}; // last post
+      {{ end }}
+    }
+  }
+  </script>
+  {{ end }}
+
+  <div class="vertical">
+    <div class="main-header-content inner">
+      <h1 class="page-title">{{ .Site.Title }}</h1>
+      <h2 class="page-description">{{ .Site.Params.description }}</h2>
+    </div>
+  </div>
+  
+  </header>
