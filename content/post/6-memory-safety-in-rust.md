@@ -39,12 +39,12 @@ let v: Vec<i32> = vec![1, 2, 3];
 ~~~
 the variable `v` is a stack-allocated reference (pointer) to a
 heap-allocated vector (`Vec<i32>`).
-<a target="_blank" href="http://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20v%3A%20Vec%3Ci32%3E%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%7D"><button class="playground">Run</button></a>
+<a target="_blank" href="http://is.gd/RbCiss"><button class="playground">Rust</button></a>
 
 ### Immutable and mutable variables
 
 In _Rust_ variables are by default **immutable**.
-<a target="_blank" href="http://play.rust-lang.org/?code=fn%20main()%0D%0A%7B%0D%0A%20%20%20%20let%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20v.push(4)%3B%0D%0A%7D"><button class="playground">Run</button></a>
+<a target="_blank" href="http://is.gd/Ulm9Cz"><button class="playground">Rust</button></a>
 
 ~~~rust
 let v = vec![1, 2, 3];
@@ -53,7 +53,7 @@ v.push(4); // error: cannot borrow immutable local variable `v` as mutable
 
 If you want to change the value of a variable, it must be declared explictly as
 **mutable** with the keyword _mut_.
-<a target="_blank" href="http://play.rust-lang.org/?code=fn%20main()%0D%0A%7B%0D%0A%20%20%20%20let%20mut%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20v.push(4)%3B%0D%0A%7D"><button class="playground">Run</button></a>
+<a target="_blank" href="http://is.gd/LxevV5"><button class="playground">Rust</button></a>
 
 ~~~rust
 let mut v2 = vec![1, 2, 3];
@@ -72,7 +72,7 @@ When the owner goes out of scope, _Rust_ will clean up everything: in our exampl
 the reference on the stack and the vector on the heap.
 
 The owner can _move_ its ownership to another variable.
-<a target="_blank" href="http://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20let%20v2%20%3D%20v%3B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D"><button class="playground">Run</button></a>
+<a target="_blank" href="http://is.gd/gg0f9R"><button class="playground">Rust</button></a>
 
 ~~~rust
 let v = vec![1, 2, 3];
@@ -84,7 +84,7 @@ If the ownerhship is moved to another variable the original owner can **not**
 access the referenced value anymore.
 
 The ownership is also moved when a variable is passed as argument to a function.
-<a target="_blank" href="http://play.rust-lang.org/?code=fn%20do_something(w%3A%20Vec%3Ci32%3E)%20%7B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20w)%3B%0D%0A%7D%0D%0A%0D%0Afn%20main()%20%7B%0D%0A%20%20%20%20let%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20do_something(v)%3B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D"><button class="playground">Run</button></a>
+<a target="_blank" href="http://is.gd/W4wxCM"><button class="playground">Rust</button></a>
 
 ~~~rust
 fn do_something(w: Vec<i32>) {
@@ -105,7 +105,7 @@ programmer (C/C++).
 
 _Borrowing_ [^2] deals with **references** (or pointers). Instead of taking over
 the ownership like variables a reference _borrows_ the ownership only.
-<a target="_blank" href="https://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20let%20v2%20%3D%20%26v%3B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D"><button class="playground">Run</button></a>
+<a target="_blank" href="http://is.gd/PvdSRO"><button class="playground">Rust</button></a>
 
 ~~~rust
 let v = vec![1, 2, 3];
@@ -129,7 +129,7 @@ references to the same resource in the **same** scope.
 The following example produces a compile error, because the parameter `v` of
 the `println!` function (the truth is it is a macro with a function call behind)
 is bound to an immutable reference.
-<a target="_blank" href="http://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20mut%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20let%20v2%20%3D%20%26mut%20v%3B%0D%0A%20%20%20%20v2.push(4)%3B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D"><button class="playground">Run</button></a>
+<a target="_blank" href="http://is.gd/mHW1w5"><button class="playground">Rust</button></a>
 
 ~~~rust
 let mut v = vec![1, 2, 3];
@@ -138,7 +138,7 @@ v2.push(4);
 println!("{:?}", v); // error: cannot borrow `v` as immutable because it is also borrowed as mutable
 ~~~
 To ensure the _Rust_ rules the mutable reference `v2` must be scoped.
-<a target="_blank" href="http://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20mut%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20let%20v2%20%3D%20%26mut%20v%3B%0D%0A%20%20%20%20%20%20%20%20v2.push(4)%3B%0D%0A%20%20%20%20%7D%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D"><button class="playground">Run</button></a>
+<a target="_blank" href="http://is.gd/4sacPk"><button class="playground">Rust</button></a>
 
 ~~~rust
 let mut v = vec![1, 2, 3];
@@ -167,7 +167,7 @@ situations. Technically, every reference has a lifetime associated with it, but
 the compiler allows you to omit it in common cases (_Lifetime Elision_).
 
 In some cases the lifetime must be specified explictly.
-<a target="_blank" href="http://play.rust-lang.org/?code=struct%20Person%20%7B%0D%0A%20%20%20%20age%3A%20%26u32,%0D%0A%7D%0D%0A%0D%0Afn%20main()%20%7B%0D%0A%20%20%20%20let%20a%20%3D%2099u32%3B%0D%0A%20%20%20%20let%20p%20%3D%20Person%20%7B%20age%3A%20%26a%20%7D%3B%0D%0A%7D"><button class="playground">Run</button></a>
+<a target="_blank" href="http://is.gd/fMetHV"><button class="playground">Rust</button></a>
 
 ~~~rust
 struct Person {
@@ -181,7 +181,7 @@ With `<‘x>` we say that there is a lifetime named `x`. With `&'x` we say that 
 reference `age` must have a lifetime of `x` or less. It is common to use single
 letters to represent lifetimes, but you could use anything you want, e.g. also
 `'life`.
-<a target="_blank" href="http://play.rust-lang.org/?code=struct%20Person%3C'x%3E%20%7B%0D%0A%20%20%20%20age%3A%20%26'x%20u32,%0D%0A%7D%0D%0A%0D%0Afn%20main()%20%7B%0D%0A%20%20%20%20let%20a%20%3D%2099u32%3B%0D%0A%20%20%20%20let%20p%20%3D%20Person%20%7B%20age%3A%20%26a%20%7D%3B%0D%0A%7D"><button class="playground">Run</button></a>
+<a target="_blank" href="http://is.gd/mBAJ82"><button class="playground">Rust</button></a>
 
 ~~~rust
 struct Person<'x> {
@@ -191,7 +191,7 @@ let a = 99u32;
 let p = Person { age: &a };
 ~~~
 
-<a target="_blank" href="http://play.rust-lang.org/?code=struct%20Person%3C'x%3E%20%7B%0D%0A%20%20%20%20age%3A%20%26'x%20u32,%0D%0A%7D%0D%0A%0D%0Afn%20main()%20%7B%0D%0A%20%20%20%20let%20p%3B%0D%0A%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20let%20a%20%3D%2099u32%3B%0D%0A%20%20%20%20%20%20%20%20p%20%3D%20Person%20%7B%20age%3A%20%26a%20%7D%3B%0D%0A%20%20%20%20%7D%0D%0A%7D"><button class="playground">Run</button></a>
+<a target="_blank" href="http://is.gd/H1J5od"><button class="playground">Rust</button></a>
 
 ~~~rust
 struct Person<'x> {

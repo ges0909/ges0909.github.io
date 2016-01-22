@@ -18,10 +18,10 @@ where the  compiler refuses to compile a program that the author thinks is valid
 - Strong, open source standard libraries.
 - Useful tools ("batteries included"):
  - Build tool with package manager and dependency control
- - Unit test support
- - Code formatter
+ - Built-in support for writing tests and benchmarking
  - Documentation tool: For example in _Rust_ with doc comments code examples may
  be run as tests.
+ - Code formatter
 - Language features:
  - Well-known datatypes like primitive, string, array, vector, slice, struct,
     enum, pointers (reference)

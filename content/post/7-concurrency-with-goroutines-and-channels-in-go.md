@@ -23,7 +23,7 @@ waiting for I/O, others continue to run.
 
 Prefix a function call with the **go** keyword to run it in a new goroutine. When
 the call completes, the goroutine exits, silently.
-<a target="_blank" href="http://play.golang.org/p/aPgFvX4az7"><button class="playground">Run</button></a>
+<a target="_blank" href="http://play.golang.org/p/aPgFvX4az7"><button class="playground">Go</button></a>
 
 ~~~go
 func writer() {
@@ -47,7 +47,7 @@ is full. Thefore channels synchronize running goroutines also.
 
 A channel is allocated with the **make** keyword.
 
-<a target="_blank" href="http://play.golang.org/p/Brd0bxSeOn"><button class="playground">Run</button></a>
+<a target="_blank" href="http://play.golang.org/p/Brd0bxSeOn"><button class="playground">Go</button></a>
 
 ~~~go
 func writer(ch chan int) {

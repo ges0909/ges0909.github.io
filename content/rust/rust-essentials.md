@@ -234,7 +234,33 @@ log = "0.2.5"
 mac = "*"
 ~~~
 
+## The test module
+
+There are unit-style, integration-style and documentation tests. All tests are
+left-out from normal builds (`cargo build`).
+
+Unit tests are stored within a module `test`, which has to be contained directly
+in the source file.
+
+Integration tests are stored under a separate directory named `tests` and outside
+from the `src` folder. They require a _lib_ crate to be tested (`[lib]` section
+in _Cargo.toml_).
+
+Test are build and run with `cargo test`.
+
+## Macros
+
+A macro name ends with an exclamation mark ('!') to distinguish it from a function.
+
+The definition of a macro may be done trough a macro, that is `macro_rules!`, and
+has the basic structure:
+
 ~~~rust
+macro_rules! macro_name {
+  ( pattern ) => ( expansion );
+  ( pattern ) => ( expansion );
+  ...
+}
 ~~~
 
 # 8 Concurrency and Parallism

@@ -17,5 +17,6 @@ title = "Rust Language Features"
 - Traits (interfaces) with default implementation
 - Variable's ownership, borrowing and lifetime
 - Macros
+<a target="_blank" href="http://is.gd/Usuzje"><button class="playground">Rust</button></a>
 
 ![Rust Essentials](/img/Cover_Rust_Essentials.jpg)
