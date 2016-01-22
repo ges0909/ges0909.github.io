@@ -96,10 +96,10 @@ where the  compiler refuses to compile a program that the author thinks is valid
 
 &lt;ul&gt;
 &lt;li&gt;Build tool with package manager and dependency control&lt;/li&gt;
-&lt;li&gt;Unit test support&lt;/li&gt;
-&lt;li&gt;Code formatter&lt;/li&gt;
+&lt;li&gt;Built-in support for writing tests and benchmarking&lt;/li&gt;
 &lt;li&gt;Documentation tool: For example in &lt;em&gt;Rust&lt;/em&gt; with doc comments code examples may
 be run as tests.&lt;/li&gt;
+&lt;li&gt;Code formatter&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;Language features:
 
@@ -144,7 +144,7 @@ enum, pointers (reference)&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;(simple) exception handling with &lt;code&gt;panic&lt;/code&gt; and &lt;code&gt;recover&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;delay function with &lt;code&gt;defer&lt;/code&gt; until surrounding function returns
-&lt;a target=&#34;_blank&#34; href=&#34;https://play.golang.org/p/It_BOFsQ8l&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;a target=&#34;_blank&#34; href=&#34;https://play.golang.org/p/It_BOFsQ8l&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Go&lt;/button&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;etc.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;Compiler produces a single, statically linked executable.&lt;/li&gt;
@@ -198,7 +198,7 @@ waiting for I/O, others continue to run.&lt;/p&gt;
 
 &lt;p&gt;Prefix a function call with the &lt;strong&gt;go&lt;/strong&gt; keyword to run it in a new goroutine. When
 the call completes, the goroutine exits, silently.
-&lt;a target=&#34;_blank&#34; href=&#34;http://play.golang.org/p/aPgFvX4az7&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a target=&#34;_blank&#34; href=&#34;http://play.golang.org/p/aPgFvX4az7&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Go&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func writer() {
     fmt.Println(&amp;quot;function&amp;quot;)
@@ -221,7 +221,7 @@ is full. Thefore channels synchronize running goroutines also.&lt;/p&gt;
 
 &lt;p&gt;A channel is allocated with the &lt;strong&gt;make&lt;/strong&gt; keyword.&lt;/p&gt;
 
-&lt;p&gt;&lt;a target=&#34;_blank&#34; href=&#34;http://play.golang.org/p/Brd0bxSeOn&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a target=&#34;_blank&#34; href=&#34;http://play.golang.org/p/Brd0bxSeOn&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Go&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func writer(ch chan int) {
     for i := 1; i &amp;lt;= 10; i++ {
@@ -268,32 +268,41 @@ go func() { // reader
 &lt;p&gt;They are promoted by &lt;em&gt;Mozilla&lt;/em&gt; resp. &lt;em&gt;Google&lt;/em&gt;, are open source and have
 large communities in background. This ensures progress for further development.&lt;/p&gt;
 
-&lt;p&gt;Both don&amp;rsquo;t invent the things new. Instead they borrow ideas from existing
+&lt;p&gt;Both don&amp;rsquo;t invent the wheel new. Instead they borrow ideas from existing
 languages and mix imperative (procedural) and functional principles.&lt;/p&gt;
 
 &lt;p&gt;Nevertheless &lt;em&gt;Rust&lt;/em&gt;&amp;rsquo;s ownership and borrowing of values for memory safety is
 unique. But it has its costs: A steep learning curve.&lt;/p&gt;
 
 &lt;p&gt;In contrast &lt;em&gt;Go&lt;/em&gt; leaves out well-known features like &lt;em&gt;Generics&lt;/em&gt; to stay simple.
-Though statically typed and compiled it may feel like a dynamically typed,
+Though statically typed and compiled it often may feel like a dynamically typed,
 interpreted language.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Rust&lt;/em&gt; allows &amp;ldquo;bare metal&amp;rdquo; programming and could substitute C/C++ in future.
 Its &lt;em&gt;Foreign Function Interface&lt;/em&gt; (FFI) allows the usage of other languages.&lt;/p&gt;
 
 &lt;p&gt;Against this &lt;em&gt;Go&lt;/em&gt; is not suitable for &amp;ldquo;bare metal&amp;rdquo; programming due to its
-garbage collection. But &lt;em&gt;Go&lt;/em&gt; is more mature because it published the first
-stable release, usable for production, three years before &lt;em&gt;Rust&lt;/em&gt;.&lt;/p&gt;
+garbage collection. It has its strength for programming backend systems, where
+typically &lt;em&gt;Java Enterprise&lt;/em&gt; is used today.&lt;/p&gt;
 
-&lt;p&gt;As result &lt;em&gt;Go&lt;/em&gt; is already is used for programming serious software, like the
-hyped &lt;a href=&#34;http://www.docker.com&#34;&gt;Docker&lt;/a&gt;. But this another story! &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;And that said: &lt;em&gt;Go&lt;/em&gt; is more mature than &lt;em&gt;Rust&lt;/em&gt; because it has published its first
+stable release three years before the competitor of Mozilla. As result &lt;em&gt;Go&lt;/em&gt; has
+reached a wider adoption: It is already used by firms like &lt;em&gt;Facebook&lt;/em&gt;, &lt;em&gt;Twitter&lt;/em&gt;,
+&lt;em&gt;SoundCloud&lt;/em&gt;, &lt;em&gt;Dropbox&lt;/em&gt;, &lt;em&gt;Booking.com&lt;/em&gt; and of course &lt;em&gt;Google&lt;/em&gt;. &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;It is also used by the hyped &lt;a href=&#34;http://www.docker.com&#34;&gt;Docker&lt;/a&gt;. But this is another
+story! &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:c6b5ee8ea86e768363ee8ce14c4cbd05:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:c6b5ee8ea86e768363ee8ce14c4cbd05:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ges0909.github.io/img/docker_container_engine_logo.png&#34; alt=&#34;Docker Container Engine Logo&#34; /&gt;&lt;/p&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
 
 &lt;hr /&gt;
 
 &lt;ol&gt;
-&lt;li id=&#34;fn:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;&lt;a href=&#34;http://de.slideshare.net/jpetazzo/docker-and-go-why-did-we-decide-to-write-docker-in-go&#34;&gt;Docker and Go: why did we decide to write Docker in Go?&lt;/a&gt;
+&lt;li id=&#34;fn:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;&lt;a href=&#34;http://www.techworld.com/apps/why-googles-go-programming-language-could-rival-java-in-enterprise-3626140/&#34;&gt;Google Go: Why Google’s programming language can rival Java in the enterprise&lt;/a&gt;
  &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:c6b5ee8ea86e768363ee8ce14c4cbd05:2&#34;&gt;&lt;a href=&#34;http://de.slideshare.net/jpetazzo/docker-and-go-why-did-we-decide-to-write-docker-in-go&#34;&gt;Docker and Go: why did we decide to write Docker in Go?&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:c6b5ee8ea86e768363ee8ce14c4cbd05:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>

@@ -349,7 +349,33 @@ log = &quot;0.2.5&quot;
 mac = &quot;*&quot;
 </code></pre>
 
-<pre><code class="language-rust"></code></pre>
+<h2 id="the-test-module:ad9c8f6f42254960fe5b739482b7b720">The test module</h2>
+
+<p>There are unit-style, integration-style and documentation tests. All tests are
+left-out from normal builds (<code>cargo build</code>).</p>
+
+<p>Unit tests are stored within a module <code>test</code>, which has to be contained directly
+in the source file.</p>
+
+<p>Integration tests are stored under a separate directory named <code>tests</code> and outside
+from the <code>src</code> folder. They require a <em>lib</em> crate to be tested (<code>[lib]</code> section
+in <em>Cargo.toml</em>).</p>
+
+<p>Test are build and run with <code>cargo test</code>.</p>
+
+<h2 id="macros:ad9c8f6f42254960fe5b739482b7b720">Macros</h2>
+
+<p>A macro name ends with an exclamation mark (&lsquo;!&rsquo;) to distinguish it from a function.</p>
+
+<p>The definition of a macro may be done trough a macro, that is <code>macro_rules!</code>, and
+has the basic structure:</p>
+
+<pre><code class="language-rust">macro_rules! macro_name {
+  ( pattern ) =&gt; ( expansion );
+  ( pattern ) =&gt; ( expansion );
+  ...
+}
+</code></pre>
 
 <h1 id="8-concurrency-and-parallism:ad9c8f6f42254960fe5b739482b7b720">8 Concurrency and Parallism</h1>
 

@@ -231,7 +231,33 @@ log = &amp;quot;0.2.5&amp;quot;
 mac = &amp;quot;*&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;the-test-module:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;The test module&lt;/h2&gt;
+
+&lt;p&gt;There are unit-style, integration-style and documentation tests. All tests are
+left-out from normal builds (&lt;code&gt;cargo build&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;Unit tests are stored within a module &lt;code&gt;test&lt;/code&gt;, which has to be contained directly
+in the source file.&lt;/p&gt;
+
+&lt;p&gt;Integration tests are stored under a separate directory named &lt;code&gt;tests&lt;/code&gt; and outside
+from the &lt;code&gt;src&lt;/code&gt; folder. They require a &lt;em&gt;lib&lt;/em&gt; crate to be tested (&lt;code&gt;[lib]&lt;/code&gt; section
+in &lt;em&gt;Cargo.toml&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;Test are build and run with &lt;code&gt;cargo test&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;macros:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Macros&lt;/h2&gt;
+
+&lt;p&gt;A macro name ends with an exclamation mark (&amp;lsquo;!&amp;rsquo;) to distinguish it from a function.&lt;/p&gt;
+
+&lt;p&gt;The definition of a macro may be done trough a macro, that is &lt;code&gt;macro_rules!&lt;/code&gt;, and
+has the basic structure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;macro_rules! macro_name {
+  ( pattern ) =&amp;gt; ( expansion );
+  ( pattern ) =&amp;gt; ( expansion );
+  ...
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;8-concurrency-and-parallism:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;8 Concurrency and Parallism&lt;/h1&gt;
 

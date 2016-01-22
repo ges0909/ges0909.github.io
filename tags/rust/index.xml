@@ -96,10 +96,10 @@ where the  compiler refuses to compile a program that the author thinks is valid
 
 &lt;ul&gt;
 &lt;li&gt;Build tool with package manager and dependency control&lt;/li&gt;
-&lt;li&gt;Unit test support&lt;/li&gt;
-&lt;li&gt;Code formatter&lt;/li&gt;
+&lt;li&gt;Built-in support for writing tests and benchmarking&lt;/li&gt;
 &lt;li&gt;Documentation tool: For example in &lt;em&gt;Rust&lt;/em&gt; with doc comments code examples may
 be run as tests.&lt;/li&gt;
+&lt;li&gt;Code formatter&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;Language features:
 
@@ -147,7 +147,8 @@ enum, pointers (reference)&lt;/li&gt;
 &lt;li&gt;Pragmatic object-orientation: no classes, no inheritance, etc.&lt;/li&gt;
 &lt;li&gt;Traits (interfaces) with default implementation&lt;/li&gt;
 &lt;li&gt;Variable&amp;rsquo;s ownership, borrowing and lifetime&lt;/li&gt;
-&lt;li&gt;Macros&lt;/li&gt;
+&lt;li&gt;Macros
+&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/Usuzje&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Rust&lt;/button&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://ges0909.github.io/img/Cover_Rust_Essentials.jpg&#34; alt=&#34;Rust Essentials&#34; /&gt;&lt;/p&gt;
@@ -196,12 +197,12 @@ stored on the heap. Heap values are referenced by variables on the stack.&lt;/p&
 
 &lt;p&gt;the variable &lt;code&gt;v&lt;/code&gt; is a stack-allocated reference (pointer) to a
 heap-allocated vector (&lt;code&gt;Vec&amp;lt;i32&amp;gt;&lt;/code&gt;).
-&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20v%3A%20Vec%3Ci32%3E%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/RbCiss&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Rust&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;immutable-and-mutable-variables:8691ca427c8973748f4a9b5adccfe7b8&#34;&gt;Immutable and mutable variables&lt;/h3&gt;
 
 &lt;p&gt;In &lt;em&gt;Rust&lt;/em&gt; variables are by default &lt;strong&gt;immutable&lt;/strong&gt;.
-&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=fn%20main()%0D%0A%7B%0D%0A%20%20%20%20let%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20v.push(4)%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/Ulm9Cz&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Rust&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;let v = vec![1, 2, 3];
 v.push(4); // error: cannot borrow immutable local variable `v` as mutable
@@ -209,7 +210,7 @@ v.push(4); // error: cannot borrow immutable local variable `v` as mutable
 
 &lt;p&gt;If you want to change the value of a variable, it must be declared explictly as
 &lt;strong&gt;mutable&lt;/strong&gt; with the keyword &lt;em&gt;mut&lt;/em&gt;.
-&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=fn%20main()%0D%0A%7B%0D%0A%20%20%20%20let%20mut%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20v.push(4)%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/LxevV5&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Rust&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;let mut v2 = vec![1, 2, 3];
 v2.push(4);
@@ -227,7 +228,7 @@ v2.push(4);
 the reference on the stack and the vector on the heap.&lt;/p&gt;
 
 &lt;p&gt;The owner can &lt;em&gt;move&lt;/em&gt; its ownership to another variable.
-&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20let%20v2%20%3D%20v%3B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/gg0f9R&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Rust&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;let v = vec![1, 2, 3];
 let v2 = v; // move ownership to &#39;v2&#39;
@@ -238,7 +239,7 @@ println!(&amp;quot;{:?}&amp;quot;, v); // error: use of moved value: `v`
 access the referenced value anymore.&lt;/p&gt;
 
 &lt;p&gt;The ownership is also moved when a variable is passed as argument to a function.
-&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=fn%20do_something(w%3A%20Vec%3Ci32%3E)%20%7B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20w)%3B%0D%0A%7D%0D%0A%0D%0Afn%20main()%20%7B%0D%0A%20%20%20%20let%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20do_something(v)%3B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/W4wxCM&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Rust&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;fn do_something(w: Vec&amp;lt;i32&amp;gt;) {
     println!(&amp;quot;{:?}&amp;quot;, w);
@@ -258,7 +259,7 @@ programmer (C/C++).&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Borrowing&lt;/em&gt; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:8691ca427c8973748f4a9b5adccfe7b8:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:8691ca427c8973748f4a9b5adccfe7b8:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; deals with &lt;strong&gt;references&lt;/strong&gt; (or pointers). Instead of taking over
 the ownership like variables a reference &lt;em&gt;borrows&lt;/em&gt; the ownership only.
-&lt;a target=&#34;_blank&#34; href=&#34;https://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20let%20v2%20%3D%20%26v%3B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/PvdSRO&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Rust&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;let v = vec![1, 2, 3];
 let v2 = &amp;amp;v; // &#39;v2&#39; borrows ownership of &#39;v&#39;
@@ -281,7 +282,7 @@ references to the same resource in the &lt;strong&gt;same&lt;/strong&gt; scope.&
 &lt;p&gt;The following example produces a compile error, because the parameter &lt;code&gt;v&lt;/code&gt; of
 the &lt;code&gt;println!&lt;/code&gt; function (the truth is it is a macro with a function call behind)
 is bound to an immutable reference.
-&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20mut%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20let%20v2%20%3D%20%26mut%20v%3B%0D%0A%20%20%20%20v2.push(4)%3B%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/mHW1w5&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Rust&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;let mut v = vec![1, 2, 3];
 let v2 = &amp;amp;mut v; // mutable reference
@@ -290,7 +291,7 @@ println!(&amp;quot;{:?}&amp;quot;, v); // error: cannot borrow `v` as immutable 
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;To ensure the &lt;em&gt;Rust&lt;/em&gt; rules the mutable reference &lt;code&gt;v2&lt;/code&gt; must be scoped.
-&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=fn%20main()%20%7B%0D%0A%20%20%20%20let%20mut%20v%20%3D%20vec!%5B1,%202,%203%5D%3B%0D%0A%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20let%20v2%20%3D%20%26mut%20v%3B%0D%0A%20%20%20%20%20%20%20%20v2.push(4)%3B%0D%0A%20%20%20%20%7D%0D%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22,%20v)%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/4sacPk&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Rust&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;let mut v = vec![1, 2, 3];
 {
@@ -319,7 +320,7 @@ situations. Technically, every reference has a lifetime associated with it, but
 the compiler allows you to omit it in common cases (&lt;em&gt;Lifetime Elision&lt;/em&gt;).&lt;/p&gt;
 
 &lt;p&gt;In some cases the lifetime must be specified explictly.
-&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=struct%20Person%20%7B%0D%0A%20%20%20%20age%3A%20%26u32,%0D%0A%7D%0D%0A%0D%0Afn%20main()%20%7B%0D%0A%20%20%20%20let%20a%20%3D%2099u32%3B%0D%0A%20%20%20%20let%20p%20%3D%20Person%20%7B%20age%3A%20%26a%20%7D%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/fMetHV&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Rust&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;struct Person {
     age: &amp;amp;u32, // error: missing lifetime specifier
@@ -332,7 +333,7 @@ let p = Person { age: &amp;amp;a };
 reference &lt;code&gt;age&lt;/code&gt; must have a lifetime of &lt;code&gt;x&lt;/code&gt; or less. It is common to use single
 letters to represent lifetimes, but you could use anything you want, e.g. also
 &lt;code&gt;&#39;life&lt;/code&gt;.
-&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=struct%20Person%3C&#39;x%3E%20%7B%0D%0A%20%20%20%20age%3A%20%26&#39;x%20u32,%0D%0A%7D%0D%0A%0D%0Afn%20main()%20%7B%0D%0A%20%20%20%20let%20a%20%3D%2099u32%3B%0D%0A%20%20%20%20let%20p%20%3D%20Person%20%7B%20age%3A%20%26a%20%7D%3B%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/mBAJ82&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Rust&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;struct Person&amp;lt;&#39;x&amp;gt; {
     age: &amp;amp;&#39;x u32,
@@ -341,7 +342,7 @@ let a = 99u32;
 let p = Person { age: &amp;amp;a };
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;a target=&#34;_blank&#34; href=&#34;http://play.rust-lang.org/?code=struct%20Person%3C&#39;x%3E%20%7B%0D%0A%20%20%20%20age%3A%20%26&#39;x%20u32,%0D%0A%7D%0D%0A%0D%0Afn%20main()%20%7B%0D%0A%20%20%20%20let%20p%3B%0D%0A%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20let%20a%20%3D%2099u32%3B%0D%0A%20%20%20%20%20%20%20%20p%20%3D%20Person%20%7B%20age%3A%20%26a%20%7D%3B%0D%0A%20%20%20%20%7D%0D%0A%7D&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Run&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a target=&#34;_blank&#34; href=&#34;http://is.gd/H1J5od&#34;&gt;&lt;button class=&#34;playground&#34;&gt;Rust&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;struct Person&amp;lt;&#39;x&amp;gt; {
     age: &amp;amp;&#39;x u32,
@@ -385,32 +386,41 @@ let p;
 &lt;p&gt;They are promoted by &lt;em&gt;Mozilla&lt;/em&gt; resp. &lt;em&gt;Google&lt;/em&gt;, are open source and have
 large communities in background. This ensures progress for further development.&lt;/p&gt;
 
-&lt;p&gt;Both don&amp;rsquo;t invent the things new. Instead they borrow ideas from existing
+&lt;p&gt;Both don&amp;rsquo;t invent the wheel new. Instead they borrow ideas from existing
 languages and mix imperative (procedural) and functional principles.&lt;/p&gt;
 
 &lt;p&gt;Nevertheless &lt;em&gt;Rust&lt;/em&gt;&amp;rsquo;s ownership and borrowing of values for memory safety is
 unique. But it has its costs: A steep learning curve.&lt;/p&gt;
 
 &lt;p&gt;In contrast &lt;em&gt;Go&lt;/em&gt; leaves out well-known features like &lt;em&gt;Generics&lt;/em&gt; to stay simple.
-Though statically typed and compiled it may feel like a dynamically typed,
+Though statically typed and compiled it often may feel like a dynamically typed,
 interpreted language.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Rust&lt;/em&gt; allows &amp;ldquo;bare metal&amp;rdquo; programming and could substitute C/C++ in future.
 Its &lt;em&gt;Foreign Function Interface&lt;/em&gt; (FFI) allows the usage of other languages.&lt;/p&gt;
 
 &lt;p&gt;Against this &lt;em&gt;Go&lt;/em&gt; is not suitable for &amp;ldquo;bare metal&amp;rdquo; programming due to its
-garbage collection. But &lt;em&gt;Go&lt;/em&gt; is more mature because it published the first
-stable release, usable for production, three years before &lt;em&gt;Rust&lt;/em&gt;.&lt;/p&gt;
+garbage collection. It has its strength for programming backend systems, where
+typically &lt;em&gt;Java Enterprise&lt;/em&gt; is used today.&lt;/p&gt;
 
-&lt;p&gt;As result &lt;em&gt;Go&lt;/em&gt; is already is used for programming serious software, like the
-hyped &lt;a href=&#34;http://www.docker.com&#34;&gt;Docker&lt;/a&gt;. But this another story! &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;And that said: &lt;em&gt;Go&lt;/em&gt; is more mature than &lt;em&gt;Rust&lt;/em&gt; because it has published its first
+stable release three years before the competitor of Mozilla. As result &lt;em&gt;Go&lt;/em&gt; has
+reached a wider adoption: It is already used by firms like &lt;em&gt;Facebook&lt;/em&gt;, &lt;em&gt;Twitter&lt;/em&gt;,
+&lt;em&gt;SoundCloud&lt;/em&gt;, &lt;em&gt;Dropbox&lt;/em&gt;, &lt;em&gt;Booking.com&lt;/em&gt; and of course &lt;em&gt;Google&lt;/em&gt;. &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;It is also used by the hyped &lt;a href=&#34;http://www.docker.com&#34;&gt;Docker&lt;/a&gt;. But this is another
+story! &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:c6b5ee8ea86e768363ee8ce14c4cbd05:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:c6b5ee8ea86e768363ee8ce14c4cbd05:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ges0909.github.io/img/docker_container_engine_logo.png&#34; alt=&#34;Docker Container Engine Logo&#34; /&gt;&lt;/p&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
 
 &lt;hr /&gt;
 
 &lt;ol&gt;
-&lt;li id=&#34;fn:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;&lt;a href=&#34;http://de.slideshare.net/jpetazzo/docker-and-go-why-did-we-decide-to-write-docker-in-go&#34;&gt;Docker and Go: why did we decide to write Docker in Go?&lt;/a&gt;
+&lt;li id=&#34;fn:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;&lt;a href=&#34;http://www.techworld.com/apps/why-googles-go-programming-language-could-rival-java-in-enterprise-3626140/&#34;&gt;Google Go: Why Google’s programming language can rival Java in the enterprise&lt;/a&gt;
  &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:c6b5ee8ea86e768363ee8ce14c4cbd05:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:c6b5ee8ea86e768363ee8ce14c4cbd05:2&#34;&gt;&lt;a href=&#34;http://de.slideshare.net/jpetazzo/docker-and-go-why-did-we-decide-to-write-docker-in-go&#34;&gt;Docker and Go: why did we decide to write Docker in Go?&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:c6b5ee8ea86e768363ee8ce14c4cbd05:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
@@ -638,7 +648,33 @@ log = &amp;quot;0.2.5&amp;quot;
 mac = &amp;quot;*&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;the-test-module:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;The test module&lt;/h2&gt;
+
+&lt;p&gt;There are unit-style, integration-style and documentation tests. All tests are
+left-out from normal builds (&lt;code&gt;cargo build&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;Unit tests are stored within a module &lt;code&gt;test&lt;/code&gt;, which has to be contained directly
+in the source file.&lt;/p&gt;
+
+&lt;p&gt;Integration tests are stored under a separate directory named &lt;code&gt;tests&lt;/code&gt; and outside
+from the &lt;code&gt;src&lt;/code&gt; folder. They require a &lt;em&gt;lib&lt;/em&gt; crate to be tested (&lt;code&gt;[lib]&lt;/code&gt; section
+in &lt;em&gt;Cargo.toml&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;Test are build and run with &lt;code&gt;cargo test&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;macros:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;Macros&lt;/h2&gt;
+
+&lt;p&gt;A macro name ends with an exclamation mark (&amp;lsquo;!&amp;rsquo;) to distinguish it from a function.&lt;/p&gt;
+
+&lt;p&gt;The definition of a macro may be done trough a macro, that is &lt;code&gt;macro_rules!&lt;/code&gt;, and
+has the basic structure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-rust&#34;&gt;macro_rules! macro_name {
+  ( pattern ) =&amp;gt; ( expansion );
+  ( pattern ) =&amp;gt; ( expansion );
+  ...
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;8-concurrency-and-parallism:ad9c8f6f42254960fe5b739482b7b720&#34;&gt;8 Concurrency and Parallism&lt;/h1&gt;
 
