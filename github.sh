@@ -30,6 +30,11 @@ function panic
   exit 1
 }
 
+function clone
+{ # workflow for clone
+  git clone "${URL}" blog
+}
+
 function push
 { # workflow for push
   
@@ -114,7 +119,7 @@ fi
 
 # check command
 case "${CMD}" in
-  init | push ) ;;
+  clone | init | push ) ;;
   * ) panic "unknown command '${CMD}', only 'init' or 'push' is allowed" ;;
 esac
 
@@ -122,6 +127,7 @@ esac
 # run command
 #
 case "${CMD}" in
+  clone) clone ;;
   init) init ;;
   push) push ;;
 esac
