@@ -2,9 +2,9 @@ baseurl = "http://ges0909.github.io/"
 languageCode = "en-us"
 title = "Overview Rust vs. Go"
 draft = "false"
-theme = "casper"
+#theme = "casper"
 #theme = "kasper"
-#theme = "slide"
+theme = "slide"
 #canonifyurls = true
 #disqusShortname = "g_schrader"
 
